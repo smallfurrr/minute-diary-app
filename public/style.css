@@ -5,6 +5,12 @@
 }
 
 @font-face {
+    font-family: 'Hero';
+    src: url('fonts/Hero.woff');
+}
+
+
+@font-face {
 	font-family: 'Hero Light';
 	src: url('fonts/Hero-Light.woff');
 }
@@ -17,6 +23,7 @@ body {
 	background-repeat: no-repeat;
 }
 
+/* home page css */
 #home-wrapper {
 	height: 90vh;
 	display: flex;
@@ -75,6 +82,36 @@ body {
 	display: inline-block;
 	border-bottom: 1px solid white;
 	padding: 5px;
+}
+
+/* nav bar */
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgba(255,255,255,0.7);
+}
+
+li {
+	display: inline-block;
+	color: black;
+	font-size: 18px;
+	margin: 0px 5px;
+}
+
+li a {
+	display: block;
+	font-size: 18px;
+	color: black;
+	text-align: center;
+	padding: 20px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	color: white;
+	background-color: pink;
 }
 
 /* forms */

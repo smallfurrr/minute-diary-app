@@ -1,4 +1,5 @@
 const sha256 = require('js-sha256');
+const cookieParser = require('cookie-parser');
 
 module.exports = function(db) {
 
@@ -43,8 +44,8 @@ module.exports = function(db) {
                 response.cookie('name', result[0].first_name);
                 response.cookie('id', result[0].id);
                 response.cookie('loggedIn', sha256(result[0].first_name));
-                // response.redirect('pages/user');
-                response.send("SUCCESSFUL LOG-IN!")
+                response.render('pages/user', request.cookies);
+                // response.send("SUCCESSFUL LOG-IN!")
             } else {
                 response.send('Login was not successful.');
             }

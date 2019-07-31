@@ -36,28 +36,22 @@ pool.on('error', function (err) {
   console.log('idle client error', err.message, err.stack);
 });
 
-/*
- * ===================================================
- * ======        REQUIRE MODEL FILES         =========
- * ===================================================
- */
-// const register = require('./models/register');
-// const registerObj = register(pool);
+ /* ===================================================
+ * ======         REQUIRE MODEL FILES          ========
+ * ==================================================*/
+const userModelsFunction = require('./models/user');
+const userModelsObject = userModelsFunction(pool);
 
-// const login = require('./models/login');
-// const loginObj = login(pool);
-/*
- * ===================================================
- * ======          MODULE EXPORTS            =========
- * ===================================================
- */
+/* ===================================================
+ * ======             MODULE EXPORTS          ========
+ * =================================================*/
+module.exports = {
+    queryInterface: function (text, params, callback) {
+        return pool.query(text, params, callback);
+    },
 
-// module.exports = {
-//     pool:pool,
 
-//     //add all app models below
-//     register: registerObj,
-//     login: loginObj,
-
-//     //each key is now representing an object (based on the model) and we can call the functions written in that object using key.method.
-// };
+    //can now call any function in the model using the key
+    pool: pool,
+    user: userModelsObject
+};

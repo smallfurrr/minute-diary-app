@@ -11,7 +11,7 @@ class Register extends React.Component {
           </div>
 
           <div className="reg-form">
-              <form method="POST" action="/users" id="register-form">
+              <form method="POST" action="/register" id="register-form">
               <input type="text" name="first_name" id="first_name" className="reg-name" placeholder="First Name"/>
               <input type="text" name="last_name" className="reg-name" placeholder="Last Name"/>
               <input type="text" name="email" placeholder="Email"/>

@@ -255,13 +255,11 @@ form#register-form {
 	color: white;
 	letter-spacing: 1px;
 	margin-bottom: 50px;
+	border-bottom: 1px dashed white;
+  padding-bottom: 10px;
+  display: inline-block;
 }
 
-/*#entry-form {
-	background: transparent;
-  border: none;
-}
-*/
 #entry-form textarea {
 	font-family: 'Hero Light', sans serif;
 	font-size: 15px;
@@ -279,4 +277,13 @@ form#register-form {
 
 #entry-form textarea:focus {
 	outline: 0;
+}
+
+#mood-selection label {
+	font-family: 'Hero', sans serif;
+	font-size: 15px;
+}
+
+#mood-selection img {
+	height: 20px;
 }

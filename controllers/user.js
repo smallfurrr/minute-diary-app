@@ -45,7 +45,6 @@ module.exports = function(db) {
                 response.cookie('id', result[0].id);
                 response.cookie('loggedIn', sha256(result[0].first_name));
                 response.render('pages/user', request.cookies);
-                // response.send("SUCCESSFUL LOG-IN!")
             } else {
                 response.send('Login was not successful.');
             }

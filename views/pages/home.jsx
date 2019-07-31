@@ -15,7 +15,7 @@ class Home extends React.Component {
 
               <div className = "home-right">
                 <h3>Existing Users</h3>
-                <form method="POST" action="/login" id="login-form">
+                <form method="POST" action="/user" id="login-form">
                     <input type="text" name="email" placeholder="Email"/>
                     <input type="password" name="password" placeholder="Password"/>
                     <button type="submit">Login</button>

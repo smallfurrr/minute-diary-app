@@ -7,5 +7,5 @@ module.exports = function (app, allModels) {
     app.get('/register', userController.registerRequestHandler);
     app.post('/register', userController.createAccountRequestHandler);
 
-    app.post('/login', userController.authenticateLoginHandler);
+    app.post('/user', userController.authenticateLoginHandler);
 };

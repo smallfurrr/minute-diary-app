@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Iris';
+  src: url('fonts/iris-font-regular.woff');
+}
+
+@font-face {
+  font-family: 'Hero Light';
+  src: url('fonts/Hero-Light.woff');
+}
+
+body {
+
+}

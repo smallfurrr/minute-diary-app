@@ -51,7 +51,7 @@ module.exports = {
     },
 
 
-    //can now call any function in the model using the key
+    //can now call any function in the model using the keys
     pool: pool,
     user: userModelsObject
 };

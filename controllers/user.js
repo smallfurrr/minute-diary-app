@@ -4,7 +4,7 @@ module.exports = function(db) {
 
     let homeRequestHandler = async function(request, response) {
         try {
-            //async part comes in later when you check if they're already logged in or not
+            //async part can come in later when you check if they're already logged in or not
             response.render('pages/home');
         } catch (error) {
             console.log('user controller ' + error);
@@ -24,6 +24,7 @@ module.exports = function(db) {
             let successfulRegistration = await db.user.createAccount(request.body.first_name, request.body.last_name, request.body.email, request.body.password);
 
             if (successfulRegistration === true) {
+                //uncomment when userpage is ready
                 // response.redirect('pages/user');
                 response.send("registration sucessful!")
             } else {
@@ -34,9 +35,28 @@ module.exports = function(db) {
         }
     };
 
+    let authenticateLoginHandler = async function(request, response) {
+        try {
+            let result = await db.user.authenticateLogin(request.body.email, request.body.password);
+
+            if (result.length === 1) {
+                response.cookie('name', result[0].first_name);
+                response.cookie('id', result[0].id);
+                response.cookie('loggedIn', sha256(result[0].first_name));
+                // response.redirect('pages/user');
+                response.send("SUCCESSFUL LOG-IN!")
+            } else {
+                response.send('Login was not successful.');
+            }
+        } catch(error) {
+            console.log('user controller ' + error);
+        }
+    };
+
     return {
         homeRequestHandler,
         registerRequestHandler,
-        createAccountRequestHandler
+        createAccountRequestHandler,
+        authenticateLoginHandler
     };
 }

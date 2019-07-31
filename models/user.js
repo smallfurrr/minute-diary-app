@@ -20,7 +20,29 @@ module.exports = function(dbPoolInstance) {
         }
     };
 
+    let authenticateLogin = async function(email, password) {
+        try {
+            const hashedPassword = sha256(password + SALT);
+
+            //ok what do i need to select here
+            const sqlQuery = `SELECT id, first_name FROM users WHERE email= $1 AND password= $2`;
+
+            const values = [email, hashedPassword];
+
+            let result = await dbPoolInstance.query(sqlQuery, values);
+
+            console.log(result);
+            console.log(result.rows);
+
+            return result.rows;
+
+        } catch(error) {
+            console.log('authenticate model: ' + error);
+        }
+    };
+
   return {
-    createAccount
+    createAccount,
+    authenticateLogin
   };
 };

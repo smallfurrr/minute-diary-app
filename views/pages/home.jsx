@@ -22,7 +22,8 @@ class Home extends React.Component {
                 </form>
                 <br/>
                 <h3>New User?</h3>
-                <button type="submit">Register</button>
+                <button type="submit" id="register-btn">Register</button>
+                <script src="scripts/register-script.js"></script>
               </div>
 
           </div>

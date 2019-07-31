@@ -36,7 +36,7 @@ body#nav-bodeh {
 /* home page css - LEFT */
 .home-left {
 	width: 66%;
-	position: relative;	/*display: inline-block;*/
+	position: relative;
 	display: flex;
 	justify-content: flex-end;
 }
@@ -121,13 +121,13 @@ li a:hover {
 	background-color: pink;
 }
 
-/* FORMS */
+/* LOGIN FORM */
 #login-form {
 	text-align: center;
 	margin: 0 auto;
 }
 
-input[type="text"] {
+#login-form input[type="text"] {
 	font-family: 'Hero Light', sans serif;
 	font-size: 13px;
 	display: block;
@@ -138,12 +138,12 @@ input[type="text"] {
 	transition: ease-in-out, width .35s ease-in-out;
 }
 
-input[type=text]:focus {
+#login-form input[type=text]:focus {
 	width: 60%;
 	outline: 0;
 }
 
-input[type="password"] {
+#login-form input[type="password"] {
 	font-family: 'Hero Light', sans serif;
 	font-size: 13px;
 	display: block;
@@ -154,7 +154,7 @@ input[type="password"] {
 	transition: ease-in-out, width .35s ease-in-out;
 }
 
-input[type="password"]:focus {
+#login-form input[type="password"]:focus {
 	width: 60%;
 	outline: 0;
 }
@@ -184,6 +184,7 @@ button[type=submit] {
 button[type=submit]:hover, button[type=submit]:focus, button[type=submit]:active {
 	background-color: #F57A8F;
 	color: white;
+	outline: 0;
 }
 
 /* REGISTRATION PAGE */
@@ -239,11 +240,43 @@ form#register-form {
 	text-align: center;
 }
 
-.user-greeting {
+.user-wrapper h1 {
 	color: white;
 	font-size: 80px;
-	margin: 50px;
+	margin: 50px 0 5px 0;
 	display: block;
 	text-shadow: -3px 2px 2px rgba(189, 195, 199, 1);
 	letter-spacing: 10px;
+}
+
+.user-wrapper h2 {
+	font-family: 'Iris', sans serif;
+	font-size: 22px;
+	color: white;
+	letter-spacing: 1px;
+	margin-bottom: 50px;
+}
+
+/*#entry-form {
+	background: transparent;
+  border: none;
+}
+*/
+#entry-form textarea {
+	font-family: 'Hero Light', sans serif;
+	font-size: 15px;
+	line-height: 2;
+	background: transparent;
+	border: none;
+	display: block;
+	padding: 10px;
+	border: none;
+	margin: 10px auto;
+	width: 65%;
+	resize: none;
+	text-align: center;
+}
+
+#entry-form textarea:focus {
+	outline: 0;
 }

@@ -41,23 +41,23 @@ pool.on('error', function (err) {
  * ======        REQUIRE MODEL FILES         =========
  * ===================================================
  */
-const register = require('./models/register');
-const registerObj = register(pool);
+// const register = require('./models/register');
+// const registerObj = register(pool);
 
-const login = require('./models/login');
-const loginObj = login(pool);
+// const login = require('./models/login');
+// const loginObj = login(pool);
 /*
  * ===================================================
  * ======          MODULE EXPORTS            =========
  * ===================================================
  */
 
-module.exports = {
-    pool:pool,
+// module.exports = {
+//     pool:pool,
 
-    //add all app models below
-    register: registerObj,
-    login: loginObj,
+//     //add all app models below
+//     register: registerObj,
+//     login: loginObj,
 
-    //each key is now representing an object (based on the model) and we can call the functions written in that object using key.method.
-};
+//     //each key is now representing an object (based on the model) and we can call the functions written in that object using key.method.
+// };

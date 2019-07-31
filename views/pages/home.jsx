@@ -8,8 +8,7 @@ class Home extends React.Component {
           <h1>Hello.</h1>
           </Layout>
         )
-    );
-  }
+    }
 }
 
 module.exports = Home;

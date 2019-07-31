@@ -145,6 +145,7 @@ button[type=submit]:hover, button[type=submit]:focus, button[type=submit]:active
 /* registration page css */
 .reg-header {
 	text-align: center;
+	margin-bottom: 50px;
 }
 
 .reg-header h1 {
@@ -168,19 +169,24 @@ button[type=submit]:hover, button[type=submit]:focus, button[type=submit]:active
 }
 
 form#register-form {
-	border: 1px solid black;
+	/*border: 1px solid black;*/
   width: 60%;
   margin: 0 auto;
   text-align: center;
 }
 
+.reg-form input[type="text"] {
+	width: 65%;
+	margin: 30px auto;
+}
+
+.reg-form input[type="password"] {
+	width: 65%;
+	margin: 30px auto;
+}
+
 .reg-form input[type="text"].reg-name {
-    font-family: 'Hero Light', sans serif;
-    font-size: 13px;
     display: inline-block;
-    padding: 10px;
-    border: none;
-    margin: 10px 10px;
+    margin: 30px 10px 10px 10px;
     width: 30%;
-    /* transition: ease-in-out, width .35s ease-in-out; */
 }

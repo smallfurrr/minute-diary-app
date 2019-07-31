@@ -5,7 +5,10 @@ class Register extends React.Component {
   render() {
     return (
           <Layout>
-          <h1>Hello.</h1>
+          <div className="reg-header">
+          <h1>minute.</h1>
+          <h2>Registration</h2>
+          </div>
           </Layout>
         )
     }

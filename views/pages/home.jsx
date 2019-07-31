@@ -5,7 +5,11 @@ class Home extends React.Component {
   render() {
     return (
           <Layout>
-          <h1>Hello.</h1>
+          <div className = "home-left">
+            <h1>minute.</h1>
+            <img src="img/cloud3.png"/>
+            <h2>A Self-Care Diary App For Busy People</h2>
+          </div>
           </Layout>
         )
     }

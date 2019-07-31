@@ -1,15 +1,52 @@
+/* overall css */
 @font-face {
-  font-family: 'Iris';
-  src: url('fonts/iris-font-regular.woff');
+	font-family: 'Iris';
+	src: url('fonts/iris-font-regular.woff');
 }
 
 @font-face {
-  font-family: 'Hero Light';
-  src: url('fonts/Hero-Light.woff');
+	font-family: 'Hero Light';
+	src: url('fonts/Hero-Light.woff');
 }
 
 body {
+	font-family: 'Iris', sans serif;
 	background-image: url("img/background.jpeg");
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+/* home page css */
+.home-left {
+	width: 900px;
+	position: relative;
+}
+
+.home-left img {
+	width: 850px;
+	position: absolute;
+	top: 150px;
+	left: 50px
+}
+
+.home-left h1 {
+	font-size: 90px;
+	display: inline-block;
+	position: absolute;
+	top: 255px;
+	left: 105px;
+	color: white;
+	letter-spacing: 10px
+}
+
+.home-left h2 {
+	font-family: 'Hero Light', sans serif;
+	font-size: 22px;
+	text-transform: uppercase;
+	display: inline-block;
+	position: absolute;
+	top: 411px;
+	left: 105px;
+	color: white;
+	letter-spacing: 1px;
 }

@@ -12,8 +12,9 @@
 body {
 	font-family: 'Iris', sans serif;
 	background-image: url("img/background.jpeg");
-	background-repeat: no-repeat;
 	background-size: cover;
+	height: 100vh;
+	background-repeat: no-repeat;
 }
 
 #home-wrapper{
@@ -27,14 +28,10 @@ body {
 	width: 66%;
 	position: relative;
 	display: inline-block;
-	border: solid 1px red;
 }
 
 .home-left img {
 	width: 850px;
-/*	position: absolute;
-	top: 150px;
-	left: 50px*/
 }
 
 .home-left h1 {
@@ -67,14 +64,10 @@ body {
 	display: inline-block;
 	text-align: center;
 	position: relative;
-	border: solid 1px blue;
 }
 
 .home-right h3 {
 	font-family: 'Hero Light', sans serif;
 	font-size: 18px;
 	display: inline-block;
-/*	position: absolute;
-	top: 200px;
-	left: 240px;*/
 }

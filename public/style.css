@@ -17,7 +17,7 @@ body {
 	background-repeat: no-repeat;
 }
 
-#home-wrapper{
+#home-wrapper {
 	height: 90vh;
 	display: flex;
 	align-items: center;
@@ -70,4 +70,54 @@ body {
 	font-family: 'Hero Light', sans serif;
 	font-size: 18px;
 	display: inline-block;
+}
+
+/* forms */
+#login-form {
+	text-align: center;
+	margin: 0 auto;
+}
+
+input[type="text"] {
+	font-family: 'Hero Light', sans serif;
+	font-size: 13px;
+	display: block;
+	padding: 10px;
+	border: none;
+	margin: 10px auto;
+	width: 40%;
+	transition: ease-in-out, width .35s ease-in-out;
+}
+
+input[type=text]:focus {
+	width: 60%;
+	outline: 0;
+}
+
+input[type="password"] {
+	font-family: 'Hero Light', sans serif;
+	font-size: 13px;
+	display: block;
+	padding: 10px;
+	border: none;
+	margin: 10px auto;
+	width: 40%;
+	transition: ease-in-out, width .35s ease-in-out;
+}
+
+input[type="password"]:focus {
+	width: 60%;
+	outline: 0;
+}
+
+button[type=submit] {
+	font-family: 'Hero Light', sans serif;
+	font-size: 15px;
+	text-transform: uppercase;
+	padding: 10px 30px;
+	margin: 10px;
+	color: black;
+	background-color: white;
+	border: none;
+	border-radius: 20px;
 }

@@ -6,6 +6,7 @@ class Home extends React.Component {
     return (
           <Layout>
           <div id="home-wrapper">
+
               <div className = "home-left">
                 <h1>minute.</h1>
                 <img src="img/cloud3.png"/>
@@ -14,7 +15,13 @@ class Home extends React.Component {
 
               <div className = "home-right">
                 <h3>Existing Users</h3>
+                <form method="POST" action="/login" id="login-form">
+                    <input type="text" name="email" placeholder="Email"/>
+                    <input type="password" name="password" placeholder="Password"/>
+                    <button type="submit">Login</button>
+                </form>
               </div>
+
           </div>
           </Layout>
         )

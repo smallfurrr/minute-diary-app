@@ -27,7 +27,9 @@ body {
 .home-left {
 	width: 66%;
 	position: relative;
-	display: inline-block;
+	/*display: inline-block;*/
+	display: flex;
+  justify-content: flex-end;
 }
 
 .home-left img {
@@ -43,19 +45,20 @@ body {
 	letter-spacing: 10px;
 	position: absolute;
 	top: 45%;
-	left: 50px;
+	left: 120px;
 }
 
 .home-left h2 {
 	font-family: 'Hero Light', sans serif;
 	font-size: 22px;
+	color: white;
+	letter-spacing: 1px;
 	text-transform: uppercase;
 	display: inline-block;
 	position: absolute;
 	top: 70%;
-	left: 50px;
-	color: white;
-	letter-spacing: 1px;
+	left: 125px;
+	margin-top: 30px;
 }
 
 /* home page css - RIGHT (login/reg) */
@@ -63,13 +66,17 @@ body {
 	width: 33%;
 	display: inline-block;
 	text-align: center;
-	position: relative;
+	/*position: relative;*/
 }
 
 .home-right h3 {
-	font-family: 'Hero Light', sans serif;
-	font-size: 18px;
-	display: inline-block;
+    font-family: 'Hero Light', sans serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 5px;
+    display: inline-block;
+    border-bottom: 1px solid white;
+    padding: 5px;
 }
 
 /* forms */
@@ -112,12 +119,27 @@ input[type="password"]:focus {
 
 button[type=submit] {
 	font-family: 'Hero Light', sans serif;
-	font-size: 15px;
+	font-size: 18px;
 	text-transform: uppercase;
-	padding: 10px 30px;
-	margin: 10px;
+	letter-spacing: 1px;
+	padding: 5px 30px;
+	display: block;
+	margin: 10px auto;
 	color: black;
 	background-color: white;
 	border: none;
 	border-radius: 20px;
+	 -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+
+button[type=submit]:hover, button[type=submit]:focus, button[type=submit]:active {
+  background-color: #F57A8F;
+  color: white;
 }

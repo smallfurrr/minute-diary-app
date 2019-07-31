@@ -20,6 +20,9 @@ class Home extends React.Component {
                     <input type="password" name="password" placeholder="Password"/>
                     <button type="submit">Login</button>
                 </form>
+                <br/>
+                <h3>New User?</h3>
+                <button type="submit">Register</button>
               </div>
 
           </div>

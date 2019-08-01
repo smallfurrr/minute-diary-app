@@ -72,7 +72,7 @@ module.exports = function(db) {
 
                 response.render('pages/user', data);
             } else {
-                response.send('Unable to render user page.');
+                response.send('Unable to render user page. Are you logged in?');
             }
         } catch(error) {
             console.log('user controller ' + error);

@@ -159,7 +159,7 @@ li a:hover {
 	outline: 0;
 }
 
-button[type=submit] {
+button[type=submit], button[type=button] {
 	font-family: 'Hero Light', sans serif;
 	font-size: 18px;
 	text-transform: uppercase;
@@ -181,7 +181,7 @@ button[type=submit] {
 	transition-property: color, background-color;
 }
 
-button[type=submit]:hover, button[type=submit]:focus, button[type=submit]:active {
+button[type=submit]:hover, button[type=submit]:focus, button[type=submit]:active, button[type=button]:hover, button[type=button]:focus, button[type=button]:active {
 	background-color: #F57A8F;
 	color: white;
 	outline: 0;
@@ -240,6 +240,7 @@ form#register-form {
 	border: none;
   padding: 10px;
 }
+
 /* LOGIN PAGE */
 #login-wrapper, #logged-wrapper {
 	text-align: center;
@@ -343,4 +344,25 @@ form#register-form {
 	-o-transition: background-color 0.4s linear;
 	-moz-transition: background-color 0.4s linear;
 	transition: background-color 0.4s linear;
+}
+
+/* POST ENTRY PAGE */
+#logged-wrapper button {
+    display: inline-block;
+    margin: 15px;
+    padding: 10px 30px;
+}
+
+#logged-wrapper h1 {
+		font-family: 'Hero', sans serif;
+	  color: white;
+    text-transform: uppercase;
+}
+
+#logged-wrapper h2 {
+		font-family: 'Hero Light', sans serif;
+}
+
+div#logged-wrapper {
+    margin-top: 50px;
 }

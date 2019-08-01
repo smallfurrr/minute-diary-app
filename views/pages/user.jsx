@@ -5,38 +5,55 @@ class User extends React.Component {
         return (
             <LayoutNav cookies={this.props.cookies}>
             <div className="user-wrapper">
+
                 <h1>Hello {this.props.name}</h1>
                 <h2>How are you feeling today?</h2>
                 <form method="POST" action="/user" id="entry-form">
                     <textarea name="content" rows="5" cols="30" maxlength="500" placeholder="Let it out.."></textarea>
 
                 <div id="mood-selection">
+
                     <div className="radio-wrapper">
-                        <label for="happy"><img src="img/happy.png" alt="happy"/><br/>Happy</label><br/>
-                        <input type="radio" name="mood_id" value="1" id="happy" />
+                        <label>
+                            <p>Happy</p>
+                            <input type="radio" name="mood_id" value="1" checked/>
+                            <img src="img/happy.png"/>
+                        </label>
                     </div>
 
                     <div className="radio-wrapper">
-                        <label for="angry"><img src="img/angry.png" alt="angry"/><br/>Angry</label><br/>
-                        <input type="radio" name="mood_id" value="2" id="angry" />
+                        <label>
+                            <p>Angry</p>
+                            <input type="radio" name="mood_id" value="2"/>
+                            <img src="img/angry.png"/>
+                        </label>
                     </div>
 
                     <div className="radio-wrapper">
-                        <label for="sad"><img src="img/sad.png" alt="sad"/><br/>Sad</label><br/>
-                        <input type="radio" name="mood_id" value="3" id="sad" />
+                        <label>
+                            <p>Sad</p>
+                            <input type="radio" name="mood_id" value="3"/>
+                            <img src="img/sad.png"/>
+                        </label>
                     </div>
 
                     <div className="radio-wrapper">
-                        <label for="meh"><img src="img/meh.png" alt="meh"/><br/>Meh</label><br/>
-                        <input type="radio" name="mood_id" value="4" id="meh" />
+                        <label>
+                            <p>Meh</p>
+                            <input type="radio" name="mood_id" value="4"/>
+                            <img src="img/meh.png"/>
+                        </label>
                     </div>
 
                     <div className="radio-wrapper">
-                        <label for="worried"><img src="img/worried.png" alt="worried"/><br/>Worried</label><br/>
-                        <input type="radio" name="mood_id" value="5" id="worried" />
+                        <label>
+                            <p>Worried</p>
+                            <input type="radio" name="mood_id" value="5"/>
+                            <img src="img/worried.png"/>
+                        </label>
                     </div>
-                </div>
                     <button type="submit">Post</button>
+                </div>
                 </form>
             </div>
             </LayoutNav>

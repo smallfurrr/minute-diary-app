@@ -55,7 +55,7 @@ module.exports = function(db) {
                 response.send('Login was not successful.');
             }
         } catch(error) {
-            console.log('user controller432' + error);
+            console.log('authenticate login controller' + error);
         }
     };
 
@@ -76,7 +76,7 @@ module.exports = function(db) {
                 response.send('Unable to render user page. Are you logged in?');
             }
         } catch(error) {
-            console.log('user controller' + error);
+            console.log('authenticate user controller' + error);
         }
     };
 

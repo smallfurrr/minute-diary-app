@@ -36,9 +36,12 @@ module.exports = function(db) {
             let topReason = await db.entry.getTopReason(orderOfReasons);
             //returns an array with ONE object with the key of reason and string value of top reason
 
-            // const moodData = {
-            //     orderOfMoods:
-            // }
+            const moodData = {
+                moodArray: orderOfMoods,
+                reasonArray: orderOfReasons,
+                topMood: topMood[0].mood,
+                topReason: topReason[0].reason,
+            };
 
             response.render('pages/mood', moodData);
             // response.send(topReason);

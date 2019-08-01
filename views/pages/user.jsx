@@ -1,5 +1,6 @@
 var React = require("react");
 var LayoutNav = require('../layouts/layout-nav.jsx');
+
 class User extends React.Component {
     render() {
         return (

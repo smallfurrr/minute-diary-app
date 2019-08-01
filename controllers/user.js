@@ -58,6 +58,27 @@ module.exports = function(db) {
         }
     };
 
+    //for app.get(/user), check if they have existing cookies on browser
+    let authenticateUserHandler = async function(request, response) {
+        try {
+            let result = await db.user.checkCookies(request.cookies);
+
+            if (result.length === 1) {
+
+                const data = {
+                    name: result[0].first_name,
+                    id: result[0].id,
+                };
+
+                response.render('pages/user', data);
+            } else {
+                response.send('Unable to render user page.');
+            }
+        } catch(error) {
+            console.log('user controller ' + error);
+        }
+    };
+
     let logoutRequestHandler = function(request, response) {
     //no checking for current cookies just LOG OUTTTT for now
         response.clearCookie('name', request.cookies['name']);
@@ -71,6 +92,7 @@ module.exports = function(db) {
         registerRequestHandler,
         createAccountRequestHandler,
         authenticateLoginHandler,
+        authenticateUserHandler,
         logoutRequestHandler
     };
 }

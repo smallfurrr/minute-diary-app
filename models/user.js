@@ -30,18 +30,26 @@ module.exports = function(dbPoolInstance) {
 
             let result = await dbPoolInstance.query(sqlQuery, values);
 
-            console.log(result);
-            console.log(result.rows);
-
             return result.rows;
-
         } catch(error) {
             console.log('authenticate model: ' + error);
         }
     };
 
+    let checkCookies = async function(cookies) {
+
+        const sqlQuery = `SELECT id, first_name FROM users WHERE id= $1 AND first_name= $2`;
+
+        const values = [cookies['id'], cookies['name']];
+
+        let result = await dbPoolInstance.query(sqlQuery, values);
+
+        return result.rows;
+    };
+
   return {
     createAccount,
-    authenticateLogin
+    authenticateLogin,
+    checkCookies
   };
 };

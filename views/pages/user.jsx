@@ -9,8 +9,9 @@ class User extends React.Component {
                 <h1>Hello,{this.props.name}</h1>
                 <h2>How are you feeling today?</h2>
 
-                <form method="POST" action="/user" id="entry-form">
-                    <textarea name="content" rows="5" cols="30" maxlength="500" placeholder="Let it out.."></textarea>
+                <form method="POST" action="/entries" id="entry-form">
+                    <input type="hidden" name="user_id" value={this.props.id}/>
+                    <textarea name="content" rows="5" cols="30" maxlength="500" placeholder="Let it out..Click here and start typing!"></textarea>
 
                     <div id="mood-selection">
                     <h3>Tag Your Mood</h3>

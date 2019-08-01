@@ -222,17 +222,27 @@ form#register-form {
 .reg-form input[type="text"] {
 	width: 65%;
 	margin: 30px auto;
+  border: none;
+  padding: 10px;
 }
 
 .reg-form input[type="password"] {
 	width: 65%;
-	margin: 30px auto;
+	margin: 10px auto 20px auto;
+	border: none;
+  padding: 10px;
 }
 
 .reg-form input[type="text"].reg-name {
 	display: inline-block;
 	margin: 30px 10px 10px 10px;
 	width: 30%;
+	border: none;
+  padding: 10px;
+}
+/* LOGIN PAGE */
+#login-wrapper {
+	text-align: center;
 }
 
 /* USER PAGE */

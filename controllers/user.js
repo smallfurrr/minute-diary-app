@@ -25,9 +25,8 @@ module.exports = function(db) {
             let successfulRegistration = await db.user.createAccount(request.body.first_name, request.body.last_name, request.body.email, request.body.password);
 
             if (successfulRegistration === true) {
-                //uncomment when userpage is ready
-                // response.redirect('pages/user');
-                response.send("registration sucessful!")
+                response.render('pages/login')
+                // response.send("Registration Sucessful!")
             } else {
                 response.send('Registration not successful');
             }

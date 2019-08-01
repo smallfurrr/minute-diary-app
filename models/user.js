@@ -24,7 +24,6 @@ module.exports = function(dbPoolInstance) {
         try {
             const hashedPassword = sha256(password + SALT);
 
-            //ok what do i need to select here
             const sqlQuery = `SELECT id, first_name FROM users WHERE email= $1 AND password= $2`;
 
             const values = [email, hashedPassword];

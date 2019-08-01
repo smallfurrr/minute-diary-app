@@ -32,7 +32,14 @@ module.exports = function(dbPoolInstance) {
 
     let orderMoods = async function(cookies) {
 
-        const sqlQuery = `SELECT COUNT(*),mood_id FROM entries WHERE user_id=$1 GROUP BY mood_id ORDER BY count DESC`;
+        // const sqlQuery = `SELECT COUNT(*),mood_id FROM entries WHERE user_id=$1 GROUP BY mood_id ORDER BY count DESC`;
+
+        const sqlQuery = `SELECT COUNT(*), mood_id, mood FROM entries INNER JOIN moods ON entries.mood_id = moods.id WHERE entries.user_id=1 GROUP BY mood_id, mood ORDER BY count DESC;`;
+
+
+// SELECT * FROM entries INNER JOIN moods ON entries.mood_id = moods.id WHERE entries.user_id=1 ORDER BY mood_id DESC;
+
+// SELECT COUNT(*), mood_id, mood FROM entries INNER JOIN moods ON entries.mood_id = moods.id WHERE entries.user_id=1 GROUP BY mood_id, mood ORDER BY count DESC;
 
         const values = [cookies['id']];
 

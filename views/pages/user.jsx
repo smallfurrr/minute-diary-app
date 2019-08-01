@@ -11,14 +11,14 @@ class User extends React.Component {
 
                 <form method="POST" action="/entries" id="entry-form">
                     <input type="hidden" name="user_id" value={this.props.id}/>
-                    <textarea name="content" rows="5" cols="30" maxlength="500" placeholder="Let it out..Click here and start typing!"></textarea>
+                    <textarea name="content" rows="5" cols="30" maxLength="500" placeholder="Let it out..Click here and start typing!"></textarea>
 
                     <div id="mood-selection">
                     <h3>Tag Your Mood</h3>
                         <div className="radio-wrapper">
                             <label>
                                 <p>Happy</p>
-                                <input type="radio" name="mood_id" value="1" checked/>
+                                <input type="radio" name="mood_id" value="1" defaultChecked/>
                                 <img src="img/happy.png"/>
                             </label>
                         </div>
@@ -63,7 +63,7 @@ class User extends React.Component {
                         <div className="radio-wrapper">
                             <label>
                                 <p>Work</p>
-                                <input type="radio" name="reason_id" value="1" checked/>
+                                <input type="radio" name="reason_id" value="1" defaultChecked/>
                                 <img src="img/work.png"/>
                             </label>
                         </div>

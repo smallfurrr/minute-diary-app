@@ -8,6 +8,7 @@ class LayoutNav extends React.Component {
                 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"></link>
                 <link rel="icon" href="img/favicon.ico" type="image/x-icon"></link>
                 <link rel="stylesheet" href="/style.css"></link>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
             </head>
             <header className="nav-header">
             <ul>

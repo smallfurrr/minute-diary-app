@@ -16,7 +16,13 @@ class Mood extends React.Component {
         return (
             <LayoutNav cookies={this.props.cookies}>
                 <h1>Mood Report</h1>
+
+                <div className="container">
+                    <canvas id="myChart" height="100"></canvas>
+                </div>
+
             <script src="scripts/mood-script.js"></script>
+            <script dangerouslySetInnerHTML={ {__html: `var cat = ${stringData};`}}/>
             </LayoutNav>
         )
     }

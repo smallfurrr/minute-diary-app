@@ -10,6 +10,7 @@ class Mood extends React.Component {
             topReason: this.props.topReason
         };
 
+
         let stringData = JSON.stringify(moodData);
         {/*console.log(stringData);*/}
 

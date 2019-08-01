@@ -24,9 +24,13 @@ module.exports = function(db) {
 
             let orderOfMoods = await db.entry.orderMoods(request.cookies);
             //returns an array of objects, with the keys of count and mood_id
+            let moodByCount = orderOfMoods.map(mood => mood.count);
+            //returns an descending array of integers
+
+            // let moodByName = orderOfMoods.map(mood => mood.mood_id);
+            // omg i really really need orderOfMoods to return mood name also
 
             let topMoodId = orderOfMoods[0].mood_id;
-
             let topMood = await db.entry.getTopMood(orderOfMoods);
             //returns an array with ONE object with the key of mood and string value of top mood
 
@@ -37,14 +41,15 @@ module.exports = function(db) {
             //returns an array with ONE object with the key of reason and string value of top reason
 
             const moodData = {
-                moodArray: orderOfMoods,
+                moodArray: moodByCount,
                 reasonArray: orderOfReasons,
                 topMood: topMood[0].mood,
                 topReason: topReason[0].reason,
             };
 
-            response.render('pages/mood', moodData);
-            // response.send(topReason);
+
+            // response.render('pages/mood', moodData);
+            response.send(realMoodArray);
 
         } catch (error) {
             console.log('mood report controller' + error)

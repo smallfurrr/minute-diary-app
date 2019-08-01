@@ -26,7 +26,6 @@ module.exports = function(db) {
 
             if (successfulRegistration === true) {
                 response.render('pages/login')
-                // response.send("Registration Sucessful!")
             } else {
                 response.send('Registration not successful');
             }
@@ -42,13 +41,14 @@ module.exports = function(db) {
             if (result.length === 1) {
                 response.cookie('name', result[0].first_name);
                 response.cookie('id', result[0].id);
-                response.cookie('loggedIn', sha256(result[0].first_name));
+                response.cookie('loggedIn', sha256(result[0].id));
 
                 const cookieData = {
                     name: result[0].first_name,
                     id: result[0].id,
-                    loggedIn: result[0].first_name
+                    loggedIn: result[0].id
                 };
+
                 response.render('pages/user', cookieData);
             } else {
                 response.send('Login was not successful.');

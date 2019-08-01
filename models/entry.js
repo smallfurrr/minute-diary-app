@@ -1,8 +1,9 @@
+var Chart = require('chart.js');
+
 module.exports = function(dbPoolInstance) {
 
     let addEntry = async function(requestbody) {
         try {
-            //insert into entries content, mood, reason, userid
             const sqlQuery = `INSERT INTO entries (user_id, content, mood_id, reason_id) VALUES ($1, $2, $3, $4)`;
 
             const values = [requestbody.user_id, requestbody.content, requestbody.mood_id, requestbody.reason_id];
@@ -16,7 +17,19 @@ module.exports = function(dbPoolInstance) {
         }
     };
 
+    let showMoodReport = async function(cookies) {
+
+        const sqlQuery = `SELECT content, mood_id, reason_id, created_at FROM entries WHERE user_id= $1`;
+
+        const values = [cookies['id']];
+
+        let result = await dbPoolInstance.query(sqlQuery, values);
+
+        return result.rows;
+    }
+
   return {
-    addEntry
+    addEntry,
+    showMoodReport
   };
 };

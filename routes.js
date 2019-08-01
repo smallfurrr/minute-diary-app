@@ -13,5 +13,7 @@ module.exports = function (app, allModels) {
 
     app.post('/entries', entryController.addEntryHandler);
 
+    app.get('/mood', entryController.fetchMoodReportHandler);
+
     app.get('/logout', userController.logoutRequestHandler);
 };

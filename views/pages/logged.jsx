@@ -10,7 +10,7 @@ class Logged extends React.Component {
 
                 <button type="button" id="report-btn">View Mood Report</button>
                 <button type="button" id="addentry-btn">Add Another Entry</button>
-            </div>{/* closing logged wrapper */}
+            </div>
             <script src="scripts/entry-script.js"></script>
             </LayoutNav>
         )

@@ -13,7 +13,7 @@ class Login extends React.Component {
                     <input type="password" name="password" placeholder="Password"/>
                     <button type="submit">Login</button>
             </form>
-          </div>{/* closing login wrapper */}
+          </div>
           </Layout>
         )
     }

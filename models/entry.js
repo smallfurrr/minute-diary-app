@@ -17,9 +17,21 @@ module.exports = function(dbPoolInstance) {
         }
     };
 
-    let showMoodReport = async function(cookies) {
+    //use this to get entries for the log page
+    let getUserEntries = async function(cookies) {
 
-        const sqlQuery = `SELECT content, mood_id, reason_id, created_at FROM entries WHERE user_id= $1`;
+        const sqlQuery = `SELECT * FROM entries WHERE user_id= $1`;
+
+        const values = [cookies['id']];
+
+        let result = await dbPoolInstance.query(sqlQuery, values);
+
+        return result.rows;
+    }
+
+    let orderMoods = async function(cookies) {
+
+        const sqlQuery = `SELECT COUNT(*),mood_id FROM entries WHERE user_id=$1 GROUP BY mood_id ORDER BY count DESC`;
 
         const values = [cookies['id']];
 
@@ -30,6 +42,7 @@ module.exports = function(dbPoolInstance) {
 
   return {
     addEntry,
-    showMoodReport
+    getUserEntries,
+    orderMoods
   };
 };

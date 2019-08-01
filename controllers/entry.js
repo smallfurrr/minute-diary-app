@@ -20,20 +20,27 @@ module.exports = function(db) {
 
     let fetchMoodReportHandler = async function(request, response) {
         try {
-            let result = await db.entry.showMoodReport(request.cookies);
+            //collect all relevant SQL queries
+            //send as a collective data object
+            //pass to page to render
 
-            //if there is a fucking result i guess
+            //gah the date selection should be here but lets fuck that for now
+
+            // let entriesByUser = await db.entry.getUserEntries(request.cookies);
+            //returns an array of objects, each object is a user entry
+
+            let result = await db.entry.orderMoods(request.cookies);
+
             if (result) {
-                // response.cookie('name', result[0].first_name);
-                // response.cookie('id', result[0].id);
-                // response.cookie('loggedIn', sha256(result[0].id));
 
-                // const cookieData = {
+                // const data = {
                 //     name: result[0].first_name,
                 //     id: result[0].id,
                 //     loggedIn: result[0].id
                 // };
+
                 response.send(result);
+                // response.render('pages/mood');
             } else {
                 response.send('Something went fucking wrong.');
             }

@@ -20,18 +20,19 @@ module.exports = function(db) {
 
     let fetchMoodReportHandler = async function(request, response) {
         try {
-            //collect all relevant SQL queries
-            //send as a collective data object
-            //pass to page to render
-
             //gah the date selection should be here but lets fuck that for now
 
-            // let entriesByUser = await db.entry.getUserEntries(request.cookies);
-            //returns an array of objects, each object is a user entry
+            let orderOfMoods = await db.entry.orderMoods(request.cookies);
+            //returns an array of objects, orderOfMoods[0].mood_id is the top occuring mood_id
 
-            let result = await db.entry.orderMoods(request.cookies);
+            let topMoodId = orderOfMoods[0].mood_id;
 
-            if (result) {
+            let topMood = await db.entry.getTopMood(orderOfMoods);
+            //returns an array with ONE object with the key of mood and the value of whatever mood is top
+
+            let orderOfReasons = await db.entry.orderReasons(request.cookies, topMoodId);
+
+            if (orderOfReasons) {
 
                 // const data = {
                 //     name: result[0].first_name,
@@ -39,7 +40,7 @@ module.exports = function(db) {
                 //     loggedIn: result[0].id
                 // };
 
-                response.send(result);
+                response.send(orderOfReasons);
                 // response.render('pages/mood');
             } else {
                 response.send('Something went fucking wrong.');

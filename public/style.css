@@ -287,3 +287,12 @@ form#register-form {
 #mood-selection img {
 	height: 20px;
 }
+
+.radio-wrapper {
+	display: inline-block;
+	margin: 0 30px;
+}
+
+input[type="radio" i]:focus {
+	background-color: pink;
+}

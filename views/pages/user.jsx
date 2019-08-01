@@ -11,8 +11,30 @@ class User extends React.Component {
                     <textarea name="content" rows="5" cols="30" maxlength="500" placeholder="Let it out.."></textarea>
 
                 <div id="mood-selection">
-                    <label for="happy"><img src="img/happy.png" alt="happy"/><br/>Happy</label><br/>
-                    <input type="radio" name="mood" value="1" id="happy" />
+                    <div className="radio-wrapper">
+                        <label for="happy"><img src="img/happy.png" alt="happy"/><br/>Happy</label><br/>
+                        <input type="radio" name="mood_id" value="1" id="happy" />
+                    </div>
+
+                    <div className="radio-wrapper">
+                        <label for="angry"><img src="img/angry.png" alt="angry"/><br/>Angry</label><br/>
+                        <input type="radio" name="mood_id" value="2" id="angry" />
+                    </div>
+
+                    <div className="radio-wrapper">
+                        <label for="sad"><img src="img/sad.png" alt="sad"/><br/>Sad</label><br/>
+                        <input type="radio" name="mood_id" value="3" id="sad" />
+                    </div>
+
+                    <div className="radio-wrapper">
+                        <label for="meh"><img src="img/meh.png" alt="meh"/><br/>Meh</label><br/>
+                        <input type="radio" name="mood_id" value="4" id="meh" />
+                    </div>
+
+                    <div className="radio-wrapper">
+                        <label for="worried"><img src="img/worried.png" alt="worried"/><br/>Worried</label><br/>
+                        <input type="radio" name="mood_id" value="5" id="worried" />
+                    </div>
                 </div>
                     <button type="submit">Post</button>
                 </form>

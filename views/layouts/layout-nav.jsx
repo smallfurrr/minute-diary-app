@@ -15,6 +15,7 @@ class LayoutNav extends React.Component {
                 <li><a href="/log">View Past Entries</a></li>
                 <li><a href="/mood">Mood Report</a></li>
                 <li><a href="/faves">Favorites</a></li>
+                <li><a href="/logout">Logout</a></li>
             </ul>
             </header>
             <body id="nav-bodeh">

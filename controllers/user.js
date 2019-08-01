@@ -43,7 +43,13 @@ module.exports = function(db) {
                 response.cookie('name', result[0].first_name);
                 response.cookie('id', result[0].id);
                 response.cookie('loggedIn', sha256(result[0].first_name));
-                response.render('pages/user', request.cookies);
+
+                const cookieData = {
+                    name: result[0].first_name,
+                    id: result[0].id,
+                    loggedIn: result[0].first_name
+                };
+                response.render('pages/user', cookieData);
             } else {
                 response.send('Login was not successful.');
             }
@@ -52,10 +58,26 @@ module.exports = function(db) {
         }
     };
 
+    //make async later
+    let addEntryHandler = function(request, response) {
+        console.log(request.body);
+        response.send("Entry added!")
+    }
+
+    let logoutRequestHandler = function(request, response) {
+    //no checking for current cookies just LOG OUTTTT
+        response.clearCookie('name', request.cookies['name']);
+        response.clearCookie('id', request.cookies['id']);
+        response.clearCookie('loggedIn', request.cookies['loggedIn']);
+        response.redirect('/home');
+    };
+
     return {
         homeRequestHandler,
         registerRequestHandler,
         createAccountRequestHandler,
-        authenticateLoginHandler
+        authenticateLoginHandler,
+        addEntryHandler,
+        logoutRequestHandler
     };
 }

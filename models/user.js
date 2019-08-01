@@ -9,7 +9,7 @@ module.exports = function(dbPoolInstance) {
 
             const sqlQuery = `INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *`;
 
-            const values = [firstname, lastname, email,hashedPassword];
+            const values = [firstname, lastname, email, hashedPassword];
 
             await dbPoolInstance.query(sqlQuery, values);
             return true;

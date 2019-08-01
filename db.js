@@ -42,6 +42,9 @@ pool.on('error', function (err) {
 const userModelsFunction = require('./models/user');
 const userModelsObject = userModelsFunction(pool);
 
+const entryModelsFunction = require('./models/entry');
+const entryModelsObject = entryModelsFunction(pool);
+
 /* ===================================================
  * ======             MODULE EXPORTS          ========
  * =================================================*/
@@ -50,8 +53,8 @@ module.exports = {
         return pool.query(text, params, callback);
     },
 
-
     //can now call any function in the model using the keys
     pool: pool,
-    user: userModelsObject
+    user: userModelsObject,
+    entry: entryModelsObject
 };

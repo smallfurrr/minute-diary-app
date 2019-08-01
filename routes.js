@@ -1,5 +1,6 @@
 module.exports = function (app, allModels) {
     const userController = require('./controllers/user')(allModels);
+    const entryController = require('./controllers/entry')(allModels);
 
     app.get('/', userController.homeRequestHandler);
     app.get('/home', userController.homeRequestHandler);
@@ -9,7 +10,7 @@ module.exports = function (app, allModels) {
 
     app.post('/user', userController.authenticateLoginHandler);
 
-    app.post('/entries', userController.addEntryHandler);
+    app.post('/entries', entryController.addEntryHandler);
 
     app.get('/logout', userController.logoutRequestHandler);
 };

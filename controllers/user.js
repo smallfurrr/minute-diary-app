@@ -58,12 +58,6 @@ module.exports = function(db) {
         }
     };
 
-    //make async later
-    let addEntryHandler = function(request, response) {
-        console.log(request.body);
-        response.send("Entry added!")
-    }
-
     let logoutRequestHandler = function(request, response) {
     //no checking for current cookies just LOG OUTTTT
         response.clearCookie('name', request.cookies['name']);
@@ -77,7 +71,6 @@ module.exports = function(db) {
         registerRequestHandler,
         createAccountRequestHandler,
         authenticateLoginHandler,
-        addEntryHandler,
         logoutRequestHandler
     };
 }

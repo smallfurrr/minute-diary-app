@@ -6,7 +6,7 @@ class User extends React.Component {
             <LayoutNav cookies={this.props.cookies}>
             <div className="user-wrapper">
 
-                <h1>Hello,{this.props.name}</h1>
+                <h1>Hello {this.props.name}</h1>
                 <h2>How are you feeling today?</h2>
 
                 <form method="POST" action="/entries" id="entry-form">
@@ -116,7 +116,7 @@ class User extends React.Component {
                             </label>
                         </div>
                     </div>{/* closing reason part of form */}
-                <br/><br/>
+                <br/>
                 <button type="submit">Post</button>
 
                 </form>

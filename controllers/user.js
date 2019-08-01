@@ -59,7 +59,7 @@ module.exports = function(db) {
     };
 
     let logoutRequestHandler = function(request, response) {
-    //no checking for current cookies just LOG OUTTTT
+    //no checking for current cookies just LOG OUTTTT for now
         response.clearCookie('name', request.cookies['name']);
         response.clearCookie('id', request.cookies['id']);
         response.clearCookie('loggedIn', request.cookies['loggedIn']);

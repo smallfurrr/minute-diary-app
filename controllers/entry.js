@@ -9,6 +9,7 @@ module.exports = function(db) {
 
             //if result returns true then show the option to add another entry or view mood report
             if (result === true) {
+                response.render('pages/logged')
                 response.send('Entry logged successfully!')
             } else {
                response.send('Unable to log entry.');

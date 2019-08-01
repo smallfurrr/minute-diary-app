@@ -241,7 +241,7 @@ form#register-form {
   padding: 10px;
 }
 /* LOGIN PAGE */
-#login-wrapper {
+#login-wrapper, #logged-wrapper {
 	text-align: center;
 }
 
@@ -276,6 +276,7 @@ form#register-form {
     color: white;
     letter-spacing: 1px;
     display: block;
+    margin: 0;
 }
 
 

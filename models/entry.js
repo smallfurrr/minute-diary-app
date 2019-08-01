@@ -6,9 +6,10 @@ module.exports = function(dbPoolInstance) {
         try {
             const sqlQuery = `INSERT INTO entries (user_id, content, mood_id, reason_id) VALUES ($1, $2, $3, $4)`;
 
-            const values = [requestbody.user_id, requestbody.content, requestbody.mood_id, requestbody.reason_id];
+            const values = [parseInt(requestbody.user_id), requestbody.content, parseInt(requestbody.mood_id), parseInt(requestbody.reason_id)];
 
             let result = await dbPoolInstance.query(sqlQuery, values);
+
             return true;
 
         } catch(error) {
@@ -53,12 +54,20 @@ module.exports = function(dbPoolInstance) {
 
     let orderReasons = async function(cookies, moodId) {
 
-        // const sqlQuery = `SELECT entries.mood_id, entries.reason_id FROM entries INNER JOIN (SELECT COUNT(*),mood_id FROM entries WHERE user_id=$1 GROUP BY mood_id HAVING mood_id=$2) AS x ON (x.mood_id = entries.mood_id)`;
-
         const sqlQuery = `SELECT COUNT(*),reason_id FROM (SELECT entries.mood_id, entries.reason_id FROM entries INNER JOIN (SELECT COUNT(*),mood_id FROM entries WHERE user_id=$1 GROUP BY mood_id HAVING mood_id=$2)AS x ON (x.mood_id = entries.mood_id))AS y GROUP BY reason_id`;
 
-        //$1 needs to be the user id cookie, $2 needs to be the top mood_id
         const values = [cookies['id'], moodId];
+
+        let result = await dbPoolInstance.query(sqlQuery, values);
+
+        return result.rows;
+    }
+
+    let getTopReason = async function(reasons) {
+
+        const sqlQuery = `SELECT reason FROM reasons WHERE id=$1`;
+
+        const values = [reasons[0].reason_id];
 
         let result = await dbPoolInstance.query(sqlQuery, values);
 
@@ -70,6 +79,7 @@ module.exports = function(dbPoolInstance) {
     getUserEntries,
     orderMoods,
     getTopMood,
-    orderReasons
+    orderReasons,
+    getTopReason
   };
 };

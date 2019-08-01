@@ -21,6 +21,7 @@ module.exports = function(dbPoolInstance) {
     };
 
     let authenticateLogin = async function(email, password) {
+
         try {
             const hashedPassword = sha256(password + SALT);
 

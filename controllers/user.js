@@ -39,22 +39,23 @@ module.exports = function(db) {
             let result = await db.user.authenticateLogin(request.body.email, request.body.password);
 
             if (result.length === 1) {
+
+                let hashed = sha256(result[0].id.toString());
                 response.cookie('name', result[0].first_name);
                 response.cookie('id', result[0].id);
-                response.cookie('loggedIn', sha256(result[0].id));
+                response.cookie('loggedIn', hashed);
 
                 const cookieData = {
-                    name: result[0].first_name,
-                    id: result[0].id,
-                    loggedIn: result[0].id
+                    name: result[0].first_name
                 };
 
                 response.render('pages/user', cookieData);
-            } else {
+            }
+            else {
                 response.send('Login was not successful.');
             }
         } catch(error) {
-            console.log('user controller ' + error);
+            console.log('user controller432' + error);
         }
     };
 
@@ -75,7 +76,7 @@ module.exports = function(db) {
                 response.send('Unable to render user page. Are you logged in?');
             }
         } catch(error) {
-            console.log('user controller ' + error);
+            console.log('user controller' + error);
         }
     };
 

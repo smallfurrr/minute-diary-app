@@ -2,15 +2,15 @@ console.log("loading chart");
 
 window.onload = function() {
 
-let myChart = document.getElementById('myChart').getContext('2d');
+let chart = document.getElementById('myChart').getContext('2d');
 
-let myChart = new Chart(myChart, {
+let myChart = new Chart(chart, {
     type: 'doughnut',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: stringData.moodNameArray, //how do I caps each (change in table?)
         datasets: [{
-            label: 'Number of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Mood by Amount',
+            data: stringData.moodCountArray,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

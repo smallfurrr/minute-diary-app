@@ -4,15 +4,16 @@ var LayoutNav = require('../layouts/layout-nav.jsx');
 class Mood extends React.Component {
     render() {
         let moodData = {
-            moodArray: this.props.moodArray,
-            reasonArray: this.props.reasonArray,
-            topMood: this.props.topMood,
-            topReason: this.props.topReason
+                moodCountArray: this.props.moodCountArray,
+                moodNameArray: this.props.moodNameArray,
+                topMood: this.props.topMood,
+                reasonCountArray: this.props.reasonCountArray,
+                reasonNameArray: this.props.reasonNameArray,
+                topReason: this.props.topReason,
         };
 
-
         let stringData = JSON.stringify(moodData);
-        {/*console.log(stringData);*/}
+        console.log(stringData);
 
         return (
             <LayoutNav cookies={this.props.cookies}>
@@ -23,7 +24,7 @@ class Mood extends React.Component {
                 </div>
 
             <script src="scripts/mood-script.js"></script>
-            <script dangerouslySetInnerHTML={ {__html: `var cat = ${stringData};`}}/>
+            <script dangerouslySetInnerHTML={ {__html: `var stringData = ${stringData};`}}/>
             </LayoutNav>
         )
     }

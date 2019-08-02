@@ -33,8 +33,7 @@ module.exports = function(dbPoolInstance) {
     let orderMoods = async function(cookies) {
 
         const sqlQuery = `SELECT COUNT(*), mood_id, mood FROM entries INNER JOIN moods ON entries.mood_id = moods.id WHERE entries.user_id=$1 GROUP BY mood_id, mood ORDER BY count DESC;`;
-        //now returns count, mood_id and mood name
-
+        //returns count, mood_id and mood name, ordered by desc mood_id count
 
         const values = [cookies['id']];
 
@@ -56,31 +55,16 @@ module.exports = function(dbPoolInstance) {
 
     let orderReasons = async function(cookies, moodId) {
 
-        // const sqlQuery = `SELECT COUNT(*),reason_id FROM (SELECT entries.mood_id, entries.reason_id FROM entries INNER JOIN (SELECT COUNT(*),mood_id FROM entries WHERE user_id=$1 GROUP BY mood_id HAVING mood_id=$2)AS x ON (x.mood_id = entries.mood_id))AS y GROUP BY reason_id ORDER BY count DESC`;
-
-        //this gets the correct order of reason_id by count BUT I NEED TO INNER JOIN WITH REASONS TO GET REASON NAME
-
-       const sqlQuery = `SELECT COUNT(*),x.mood_id,x.reason_id,x.reason FROM (SELECT entries.mood_id, entries.reason_id, reasons.reason, entries.user_id FROM entries INNER JOIN reasons ON (reasons.id = entries.reason_id) WHERE mood_id = 3 AND user_id=1) AS x GROUP BY x.mood_id,x.reason_id,x.reason`;
-
-SELECT COUNT(*),x.mood_id,x.reason_id,x.reason FROM (SELECT entries.mood_id, entries.reason_id, reasons.reason, entries.user_id FROM entries INNER JOIN reasons ON (reasons.id = entries.reason_id) WHERE user_id=4) AS x GROUP BY x.mood_id,x.reason_id,x.reason
-
-       //ok this MIGHT work but i need to try logging as someone else
+       const sqlQuery = `SELECT COUNT(*),x.mood_id,x.reason_id,x.reason FROM (SELECT entries.mood_id, entries.reason_id, reasons.reason, entries.user_id FROM entries INNER JOIN reasons ON (reasons.id = entries.reason_id) WHERE user_id=$1 AND mood_id=$2) AS x GROUP BY x.mood_id,x.reason_id,x.reason`;
+       //YES IT WORKS
+       //returns count, mood_id (according to query), reason_id, reason ordered by count of reason_id
 
         const values = [cookies['id'], moodId];
+
         let result = await dbPoolInstance.query(sqlQuery, values);
+
         return result.rows;
     }
-
-    // let getTopReason = async function(reasons) {
-
-    //     const sqlQuery = `SELECT reason FROM reasons WHERE id=$1`;
-
-    //     const values = [reasons[0].reason_id];
-
-    //     let result = await dbPoolInstance.query(sqlQuery, values);
-
-    //     return result.rows;
-    // }
 
   return {
     addEntry,
@@ -88,6 +72,5 @@ SELECT COUNT(*),x.mood_id,x.reason_id,x.reason FROM (SELECT entries.mood_id, ent
     orderMoods,
     getTopMood,
     orderReasons,
-    // getTopReason
   };
 };

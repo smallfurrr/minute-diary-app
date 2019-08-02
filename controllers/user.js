@@ -60,7 +60,7 @@ module.exports = function(db) {
         }
     };
 
-    //for app.get(/user), check if they have existing cookies on browser
+    //for app.get(/user), check if they have existing cookies
     let authenticateUserHandler = async function(request, response) {
         try {
             let result = await db.user.checkCookies(request.cookies);

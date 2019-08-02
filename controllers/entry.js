@@ -28,7 +28,7 @@ module.exports = function(db) {
             let moodByCount = orderOfMoods.map(mood => mood.count);
             //returns an descending array of integers
             let moodByName = orderOfMoods.map(mood => mood.mood);
-            //should return an descending array of moods that should correspond to moodByCount array
+            //returns an descending array of moods that corresponds to moodByCount array
 
             let topMoodId = orderOfMoods[0].mood_id;
             //DO NOT REMOVE need this to find the top reason later
@@ -36,8 +36,11 @@ module.exports = function(db) {
             let topMood = await db.entry.getTopMood(orderOfMoods);
             //returns an array with ONE object with the key of mood and string value of top mood
 
-            // let orderOfReasons = await db.entry.orderReasons(request.cookies, topMoodId);
-            //this SHOULD not return a similar array to orderOfMoods with the keys of count, reason_id and reason
+            let orderOfReasons = await db.entry.orderReasons(request.cookies, topMoodId);
+            //returns object array of reasons with keys count and reason_id
+
+            let reasonByCount = orderOfReasons.map(mood => reason.count);
+            //returns an descending array of integers
 
             // let topReason = await db.entry.getTopReason(orderOfReasons);
             //returns an array with ONE object with the key of reason and string value of top reason
@@ -45,8 +48,8 @@ module.exports = function(db) {
             const moodData = {
                 moodCountArray: moodByCount,
                 moodNameArray: moodByName,
-                // reasonArray: orderOfReasons,
                 topMood: topMood[0].mood,
+                reasonArray: orderOfReasons,
                 // topReason: topReason[0].reason,
             };
 

@@ -46,7 +46,8 @@ module.exports = function(db) {
                 response.cookie('loggedIn', hashed);
 
                 const cookieData = {
-                    name: result[0].first_name
+                    name: result[0].first_name,
+                    id: parseInt(result[0].id)
                 };
 
                 response.render('pages/user', cookieData);

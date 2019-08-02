@@ -18,7 +18,7 @@ module.exports = function(dbPoolInstance) {
         }
     };
 
-    //use this to get entries for the log page
+    //use this to get entries for the log page laterrrr
     let getUserEntries = async function(cookies) {
 
         const sqlQuery = `SELECT * FROM entries WHERE user_id= $1`;
@@ -54,17 +54,22 @@ module.exports = function(dbPoolInstance) {
         return result.rows;
     }
 
-    // let orderReasons = async function(cookies, moodId) {
+    let orderReasons = async function(cookies, moodId) {
 
-    //     const sqlQuery = `SELECT COUNT(*),reason_id, reason FROM (SELECT entries.mood_id, entries.reason_id FROM entries INNER JOIN (SELECT COUNT(*),mood_id, mood FROM entries WHERE user_id=$1 GROUP BY mood_id HAVING mood_id=$2)AS x ON (x.mood_id = entries.mood_id))AS y GROUP BY reason_id, reason ORDER BY count DESC`;
-    //     //i suspect this is where it will fuck up lol
+        // const sqlQuery = `SELECT COUNT(*),reason_id FROM (SELECT entries.mood_id, entries.reason_id FROM entries INNER JOIN (SELECT COUNT(*),mood_id FROM entries WHERE user_id=$1 GROUP BY mood_id HAVING mood_id=$2)AS x ON (x.mood_id = entries.mood_id))AS y GROUP BY reason_id ORDER BY count DESC`;
 
-    //     const values = [cookies['id'], moodId];
+        //this gets the correct order of reason_id by count BUT I NEED TO INNER JOIN WITH REASONS TO GET REASON NAME
 
-    //     let result = await dbPoolInstance.query(sqlQuery, values);
+       const sqlQuery = `SELECT COUNT(*),x.mood_id,x.reason_id,x.reason FROM (SELECT entries.mood_id, entries.reason_id, reasons.reason, entries.user_id FROM entries INNER JOIN reasons ON (reasons.id = entries.reason_id) WHERE mood_id = 3 AND user_id=1) AS x GROUP BY x.mood_id,x.reason_id,x.reason`;
 
-    //     return result.rows;
-    // }
+SELECT COUNT(*),x.mood_id,x.reason_id,x.reason FROM (SELECT entries.mood_id, entries.reason_id, reasons.reason, entries.user_id FROM entries INNER JOIN reasons ON (reasons.id = entries.reason_id) WHERE user_id=4) AS x GROUP BY x.mood_id,x.reason_id,x.reason
+
+       //ok this MIGHT work but i need to try logging as someone else
+
+        const values = [cookies['id'], moodId];
+        let result = await dbPoolInstance.query(sqlQuery, values);
+        return result.rows;
+    }
 
     // let getTopReason = async function(reasons) {
 
@@ -82,7 +87,7 @@ module.exports = function(dbPoolInstance) {
     getUserEntries,
     orderMoods,
     getTopMood,
-    // orderReasons,
+    orderReasons,
     // getTopReason
   };
 };

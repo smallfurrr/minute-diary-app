@@ -56,8 +56,8 @@ module.exports = function(dbPoolInstance) {
     let orderReasons = async function(cookies, moodId) {
 
        const sqlQuery = `SELECT COUNT(*),x.mood_id,x.reason_id,x.reason FROM (SELECT entries.mood_id, entries.reason_id, reasons.reason, entries.user_id FROM entries INNER JOIN reasons ON (reasons.id = entries.reason_id) WHERE user_id=$1 AND mood_id=$2) AS x GROUP BY x.mood_id,x.reason_id,x.reason`;
-       //YES IT WORKS
        //returns count, mood_id (according to query), reason_id, reason ordered by count of reason_id
+       //sort by date can possibly go under the WHERE portion
 
         const values = [cookies['id'], moodId];
 

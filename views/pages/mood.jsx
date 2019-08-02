@@ -20,10 +20,14 @@ class Mood extends React.Component {
             <div id="report-wrapper">
                 <h1>Mood Report</h1>
 
-                <h2>Your Primary Mood is: <span>{moodData.topMood}</span></h2>
+                <div id="mood-container">
+                    <h2>Your Primary Mood is: <span>{moodData.topMood}</span></h2>
+                    <canvas id="moodChart" height="80"></canvas>
+                </div>
 
-                <div className="container">
-                    <canvas id="myChart" height="80"></canvas>
+                <div id="mood-container">
+                    <h2>The Primary Reason is: <span>{moodData.topReason}</span></h2>
+                    <canvas id="reasonChart" height="80"></canvas>
                 </div>
             </div>
             <script src="scripts/mood-script.js"></script>

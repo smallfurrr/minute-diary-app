@@ -385,3 +385,7 @@ div#logged-wrapper {
 	text-align: center;
 	text-transform: uppercase;
 }
+
+#mood-container {
+	width: 100%;
+}

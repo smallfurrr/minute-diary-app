@@ -2,14 +2,14 @@ console.log("loading chart");
 
 window.onload = function() {
 
-var ctx = document.getElementById('myChart');
+let myChart = document.getElementById('myChart').getContext('2d');
 
-var myChart = new Chart(ctx, {
+let myChart = new Chart(myChart, {
     type: 'doughnut',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
-            label: 'no of votes',
+            label: 'Number of Votes',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

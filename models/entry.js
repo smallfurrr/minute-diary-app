@@ -32,14 +32,9 @@ module.exports = function(dbPoolInstance) {
 
     let orderMoods = async function(cookies) {
 
-        // const sqlQuery = `SELECT COUNT(*),mood_id FROM entries WHERE user_id=$1 GROUP BY mood_id ORDER BY count DESC`;
+        const sqlQuery = `SELECT COUNT(*), mood_id, mood FROM entries INNER JOIN moods ON entries.mood_id = moods.id WHERE entries.user_id=$1 GROUP BY mood_id, mood ORDER BY count DESC;`;
+        //now returns count, mood_id and mood name
 
-        const sqlQuery = `SELECT COUNT(*), mood_id, mood FROM entries INNER JOIN moods ON entries.mood_id = moods.id WHERE entries.user_id=1 GROUP BY mood_id, mood ORDER BY count DESC;`;
-
-
-// SELECT * FROM entries INNER JOIN moods ON entries.mood_id = moods.id WHERE entries.user_id=1 ORDER BY mood_id DESC;
-
-// SELECT COUNT(*), mood_id, mood FROM entries INNER JOIN moods ON entries.mood_id = moods.id WHERE entries.user_id=1 GROUP BY mood_id, mood ORDER BY count DESC;
 
         const values = [cookies['id']];
 
@@ -59,34 +54,35 @@ module.exports = function(dbPoolInstance) {
         return result.rows;
     }
 
-    let orderReasons = async function(cookies, moodId) {
+    // let orderReasons = async function(cookies, moodId) {
 
-        const sqlQuery = `SELECT COUNT(*),reason_id FROM (SELECT entries.mood_id, entries.reason_id FROM entries INNER JOIN (SELECT COUNT(*),mood_id FROM entries WHERE user_id=$1 GROUP BY mood_id HAVING mood_id=$2)AS x ON (x.mood_id = entries.mood_id))AS y GROUP BY reason_id`;
+    //     const sqlQuery = `SELECT COUNT(*),reason_id, reason FROM (SELECT entries.mood_id, entries.reason_id FROM entries INNER JOIN (SELECT COUNT(*),mood_id, mood FROM entries WHERE user_id=$1 GROUP BY mood_id HAVING mood_id=$2)AS x ON (x.mood_id = entries.mood_id))AS y GROUP BY reason_id, reason ORDER BY count DESC`;
+    //     //i suspect this is where it will fuck up lol
 
-        const values = [cookies['id'], moodId];
+    //     const values = [cookies['id'], moodId];
 
-        let result = await dbPoolInstance.query(sqlQuery, values);
+    //     let result = await dbPoolInstance.query(sqlQuery, values);
 
-        return result.rows;
-    }
+    //     return result.rows;
+    // }
 
-    let getTopReason = async function(reasons) {
+    // let getTopReason = async function(reasons) {
 
-        const sqlQuery = `SELECT reason FROM reasons WHERE id=$1`;
+    //     const sqlQuery = `SELECT reason FROM reasons WHERE id=$1`;
 
-        const values = [reasons[0].reason_id];
+    //     const values = [reasons[0].reason_id];
 
-        let result = await dbPoolInstance.query(sqlQuery, values);
+    //     let result = await dbPoolInstance.query(sqlQuery, values);
 
-        return result.rows;
-    }
+    //     return result.rows;
+    // }
 
   return {
     addEntry,
     getUserEntries,
     orderMoods,
     getTopMood,
-    orderReasons,
-    getTopReason
+    // orderReasons,
+    // getTopReason
   };
 };

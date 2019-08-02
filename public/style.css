@@ -222,15 +222,15 @@ form#register-form {
 .reg-form input[type="text"] {
 	width: 65%;
 	margin: 30px auto;
-  border: none;
-  padding: 10px;
+	border: none;
+	padding: 10px;
 }
 
 .reg-form input[type="password"] {
 	width: 65%;
 	margin: 10px auto 20px auto;
 	border: none;
-  padding: 10px;
+	padding: 10px;
 }
 
 .reg-form input[type="text"].reg-name {
@@ -238,7 +238,7 @@ form#register-form {
 	margin: 30px 10px 10px 10px;
 	width: 30%;
 	border: none;
-  padding: 10px;
+	padding: 10px;
 }
 
 /* LOGIN PAGE */
@@ -261,25 +261,24 @@ form#register-form {
 }
 
 .user-wrapper h2 {
-    font-family: 'Iris', sans serif;
-    font-size: 18px;
-    color: white;
-    letter-spacing: 1px;
-    margin-bottom: 40px;
-    /* border-bottom: 1px dashed white; */
-    /* padding-bottom: 5px; */
-    display: inline-block;
+	font-family: 'Iris', sans serif;
+	font-size: 18px;
+	color: white;
+	letter-spacing: 1px;
+	margin-bottom: 40px;    /* border-bottom: 1px dashed white; */
+
+	/* padding-bottom: 5px; */
+	display: inline-block;
 }
 
 .user-wrapper h3 {
-    font-family: 'Iris', sans serif;
-    font-size: 13px;
-    color: white;
-    letter-spacing: 1px;
-    display: block;
-    margin: 0;
+	font-family: 'Iris', sans serif;
+	font-size: 13px;
+	color: white;
+	letter-spacing: 1px;
+	display: block;
+	margin: 0;
 }
-
 
 #entry-form textarea {
 	font-family: 'Hero', sans serif;
@@ -315,7 +314,7 @@ form#register-form {
 	margin: 0 30px;
 }
 
-.radio-wrapper p{
+.radio-wrapper p {
 	font-size: 13px;
 }
 
@@ -348,21 +347,41 @@ form#register-form {
 
 /* POST ENTRY PAGE */
 #logged-wrapper button {
-    display: inline-block;
-    margin: 15px;
-    padding: 10px 30px;
+	display: inline-block;
+	margin: 15px;
+	padding: 10px 30px;
 }
 
 #logged-wrapper h1 {
-		font-family: 'Hero', sans serif;
-	  color: white;
-    text-transform: uppercase;
+	font-family: 'Hero', sans serif;
+	color: white;
+	text-transform: uppercase;
 }
 
 #logged-wrapper h2 {
-		font-family: 'Hero Light', sans serif;
+	font-family: 'Hero Light', sans serif;
 }
 
 div#logged-wrapper {
-    margin-top: 50px;
+	margin-top: 50px;
+}
+
+/* MOOD REPORT PAGE */
+#report-wrapper h1 {
+		text-align: center;
+}
+
+#report-wrapper h2 {
+	font-family: 'Hero Light', sans serif;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+}
+
+#report-wrapper span {
+	font-family: 'Hero Light', sans serif;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
 }

@@ -9,6 +9,7 @@ class LayoutNav extends React.Component {
                 <link rel="icon" href="img/favicon.ico" type="image/x-icon"></link>
                 <link rel="stylesheet" href="/style.css"></link>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                <script type="text/javascript" src="chartjs-plugin-colorschemes.js"></script>
             </head>
             <header className="nav-header">
             <ul>

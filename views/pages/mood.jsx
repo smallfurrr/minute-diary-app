@@ -3,6 +3,7 @@ var LayoutNav = require('../layouts/layout-nav.jsx');
 
 class Mood extends React.Component {
     render() {
+
         let moodData = {
                 moodCountArray: this.props.moodCountArray,
                 moodNameArray: this.props.moodNameArray,
@@ -13,16 +14,18 @@ class Mood extends React.Component {
         };
 
         let stringData = JSON.stringify(moodData);
-        console.log(stringData);
 
         return (
-            <LayoutNav cookies={this.props.cookies}>
+            <LayoutNav>
+            <div id="report-wrapper">
                 <h1>Mood Report</h1>
 
-                <div className="container">
-                    <canvas id="myChart" height="100"></canvas>
-                </div>
+                <h2>Your Primary Mood is: <span>{moodData.topMood}</span></h2>
 
+                <div className="container">
+                    <canvas id="myChart" height="80"></canvas>
+                </div>
+            </div>
             <script src="scripts/mood-script.js"></script>
             <script dangerouslySetInnerHTML={ {__html: `var stringData = ${stringData};`}}/>
             </LayoutNav>

@@ -49,14 +49,22 @@ module.exports = function(db) {
 
             response.render('pages/mood', moodData);
             // response.send(moodData);
-
         } catch (error) {
             console.log('mood report controller' + error)
         }
     }
 
+    let toggleFavesHandler = async function (request, response) {
+        try {
+            let result = db.entry.checkFaves(request.body.podcastId);
+        } catch (error) {
+            console.log('toggle faves controller' + error);
+        }
+    }
+
     return {
         addEntryHandler,
-        fetchMoodReportHandler
+        fetchMoodReportHandler,
+        toggleFavesHandler
     };
 }

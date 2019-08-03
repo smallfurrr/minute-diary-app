@@ -75,12 +75,17 @@ module.exports = function(dbPoolInstance) {
         return result.rows;
     }
 
+    let checkFaves = function(podcastId) {
+        console.log(podcastId);
+    }
+
   return {
     addEntry,
     getUserEntries,
     orderMoods,
     orderReasons,
     getMessage,
-    getMeditations
+    getMeditations,
+    checkFaves
   };
 };

@@ -50,9 +50,20 @@ class Mood extends React.Component {
                 </div>
                 </div>{/*closing report-wrapper*/}
 
-                <div id="podcast-container">
-                    <p>{moodData.customMessage}</p>
-                    {meditationCards}
+            <br/>
+
+            <div className="report-header">
+                <h1>Your Recommended Listenings</h1>
+            </div>
+
+                <div id="meditation-container">
+                    <div id="meditation-message">
+                        <p>{moodData.customMessage}</p>
+                    </div>
+
+                    <div id="meditation-tracks">
+                        {meditationCards}
+                    </div>
                 </div>
             <script src="scripts/mood-script.js"></script>
             <script dangerouslySetInnerHTML={ {__html: `var stringData = ${stringData};`}}/>

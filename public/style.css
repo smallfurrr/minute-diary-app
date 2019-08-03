@@ -417,14 +417,22 @@ canvas{
 	display: inline-block;
 }
 
-#podcast-container {
-	width: 50%;
-	text-align: center;
-	margin: 0 auto;
+#meditation-container {
+	display: flex;
+	justify-content: space-around;
 }
 
-#podcast-container p {
-	display: block;
+#meditation-container p {
+	/*display: block;*/
 	font-family: 'Hero', sans serif;
 	font-size: 15px;
+}
+
+#meditation-message {
+	width: 40%;
+	background-color: white;
+}
+
+#meditation-tracks {
+	width: 40%;
 }

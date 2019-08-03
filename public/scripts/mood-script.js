@@ -3,11 +3,12 @@ window.onload = function() {
 let chart = document.getElementById('moodChart').getContext('2d');
 
 let chart2 = document.getElementById('reasonChart').getContext('2d');
+Chart.defaults.global.defaultFontSize = 15;
 
 let myChart = new Chart(chart, {
     type: 'doughnut',
     data: {
-        labels: stringData.moodNameArray, //how do I caps each (must change in table?)
+        labels: stringData.moodNameArray,
         datasets: [{
             label: 'Mood by Amount',
             data: stringData.moodCountArray,

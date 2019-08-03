@@ -460,3 +460,7 @@ blockquote {
 	width: 40%;
 	margin: 30px;
 }
+
+input[type="image"]:focus {
+	outline: 0;
+}

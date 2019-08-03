@@ -27,12 +27,12 @@ class Mood extends React.Component {
 
                 <div id="mood-container">
                     <h2>Your Primary Mood is: <span>{moodData.topMood}</span></h2>
-                    <canvas id="moodChart" width="500%" height="500%"></canvas>
+                    <canvas id="moodChart" width="500%" height="400%"></canvas>
                 </div>
 
                 <div id="reason-container">
                     <h2>The Primary Reason is: <span>{moodData.topReason}</span></h2>
-                    <canvas id="reasonChart" width="500%" height="500%"></canvas>
+                    <canvas id="reasonChart" width="500%" height="400%"></canvas>
                 </div>
                 </div>{/*closing report-wrapper*/}
 

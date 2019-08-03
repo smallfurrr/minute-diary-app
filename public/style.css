@@ -386,7 +386,7 @@ canvas{
 
 #report-wrapper {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	padding: 20px;
 }
 

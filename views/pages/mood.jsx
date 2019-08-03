@@ -18,8 +18,12 @@ class Mood extends React.Component {
 
         return (
             <LayoutScroll>
-            <div id="report-wrapper">
+
+            <div className="report-header">
                 <h1>Mood Report</h1>
+            </div>
+
+            <div id="report-wrapper">
 
                 <div id="mood-container">
                     <h2>Your Primary Mood is: <span>{moodData.topMood}</span></h2>
@@ -28,13 +32,13 @@ class Mood extends React.Component {
 
                 <div id="reason-container">
                     <h2>The Primary Reason is: <span>{moodData.topReason}</span></h2>
-                    <canvas id="reasonChart" height="80"></canvas>
+                    <canvas id="reasonChart" width="500%" height="500%"></canvas>
                 </div>
+                </div>{/*closing report-wrapper*/}
 
                 <div id="podcast-container">
                 <p>{moodData.customMessage}</p>
                 </div>
-            </div>{/*closing report-wrapper*/}
             <script src="scripts/mood-script.js"></script>
             <script dangerouslySetInnerHTML={ {__html: `var stringData = ${stringData};`}}/>
             </LayoutScroll>

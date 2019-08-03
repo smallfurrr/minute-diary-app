@@ -384,11 +384,17 @@ canvas{
 	display: inline-block;
 }
 
-#report-wrapper h1 {
+#report-wrapper {
+	display: flex;
+	justify-content: space-around;
+	padding: 20px;
+}
+
+#report-wrapper h1, .report-header h1 {
 		text-align: center;
 }
 
-#report-wrapper h2 {
+#report-wrapper h2, .report-header h2{
 	font-family: 'Hero Light', sans serif;
 	font-size: 20px;
 	color: white;
@@ -404,7 +410,10 @@ canvas{
 }
 
 #mood-container {
-	/*width: 50%;*/
+	display: inline-block;
+}
+
+#reason-container {
 	display: inline-block;
 }
 
@@ -415,6 +424,7 @@ canvas{
 }
 
 #podcast-container p {
+	display: block;
 	font-family: 'Hero', sans serif;
 	font-size: 15px;
 }

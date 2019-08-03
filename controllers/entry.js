@@ -34,7 +34,7 @@ module.exports = function(db) {
 
             let customMessage = await db.entry.getMessage(topMoodId);
             let customMeditations = await db.entry.getMeditations(topMoodId)
-            //should be an array of objects with each object being a meditation with title and link
+            //should be an array of objects with each object being a meditation with id, title and link
 
             const moodData = {
                 moodCountArray: moodByCount,

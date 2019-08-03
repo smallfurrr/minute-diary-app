@@ -26,7 +26,7 @@ class Mood extends React.Component {
                             <source src={meditation.link} type="audio/mpeg"/>
                             Your browser does not support the audio tag.
                         </audio>
-                        <input type="image" src="img/empty-heart.png" height="20px" />
+                        <input type="image" src="img/empty-heart.png" id={meditation.id} height="20px" />
                 </div>
         )
     });
@@ -67,6 +67,7 @@ class Mood extends React.Component {
                     </div>
                 </div>
             <script src="scripts/mood-script.js"></script>
+            <script src="scripts/fave-script.js"></script>
             <script dangerouslySetInnerHTML={ {__html: `var stringData = ${stringData};`}}/>
             </LayoutScroll>
         )

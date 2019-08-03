@@ -66,7 +66,7 @@ module.exports = function(dbPoolInstance) {
     }
 
     let getMeditations = async function(moodId) {
-        const sqlQuery = `SELECT title,link FROM tracks WHERE mood_id=$1`;
+        const sqlQuery = `SELECT id,title,link FROM tracks WHERE mood_id=$1`;
 
         const values = [moodId];
 

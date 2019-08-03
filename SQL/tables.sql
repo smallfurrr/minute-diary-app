@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS entries (
 
 CREATE TABLE IF NOT EXISTS podcasts (
 	id SERIAL PRIMARY KEY,
+	link TEXT,
 	mood_id INTEGER,
 	reason_id INTEGER
 );

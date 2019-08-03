@@ -1,5 +1,5 @@
 var React = require("react");
-var LayoutNav = require('../layouts/layout-nav.jsx');
+var LayoutScroll = require('../layouts/layout-scroll.jsx');
 
 class Mood extends React.Component {
     render() {
@@ -16,7 +16,7 @@ class Mood extends React.Component {
         let stringData = JSON.stringify(moodData);
 
         return (
-            <LayoutNav>
+            <LayoutScroll>
             <div id="report-wrapper">
                 <h1>Mood Report</h1>
 
@@ -32,7 +32,7 @@ class Mood extends React.Component {
             </div>
             <script src="scripts/mood-script.js"></script>
             <script dangerouslySetInnerHTML={ {__html: `var stringData = ${stringData};`}}/>
-            </LayoutNav>
+            </LayoutScroll>
         )
     }
 }

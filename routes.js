@@ -12,8 +12,10 @@ module.exports = function (app, allModels) {
     app.post('/user', userController.authenticateLoginHandler);
 
     app.post('/entries', entryController.addEntryHandler);
-
     app.get('/mood', entryController.fetchMoodReportHandler);
+
+    //change the entry controller to something else obvs
+    app.get('/log', entryController.fetchMoodReportHandler);
 
     app.get('/logout', userController.logoutRequestHandler);
 };

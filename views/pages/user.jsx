@@ -4,7 +4,7 @@ var LayoutNav = require('../layouts/layout-nav.jsx');
 class User extends React.Component {
     render() {
         return (
-            <LayoutNav cookies={this.props.cookies}>
+            <LayoutNav>
             <div className="user-wrapper">
 
                 <h1>Hello {this.props.name}</h1>

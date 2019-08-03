@@ -60,7 +60,14 @@ module.exports = function(db) {
 
             let podcastId = request.body.podcastId;
 
-            let result = db.entry.checkFaves(podcastId, userId);
+            let result = await db.entry.checkFaves(podcastId, userId);
+
+            if (result === true) {
+                console.log("elise is the smartest");
+            } else {
+                console.log("elise is a dumb bitch");
+            }
+            //actually nothing to do with this result right hahahah
         } catch (error) {
             console.log('toggle faves controller' + error);
         }

@@ -75,9 +75,36 @@ module.exports = function(dbPoolInstance) {
         return result.rows;
     }
 
-    let checkFaves = function(podcastId, userId) {
-        console.log(podcastId);
-        console.log(userId);
+    let checkFaves = async function(podcastId, userId) {
+
+        const sqlQuery = `SELECT id FROM favorites WHERE podcast_id=$1 AND user_id=$2`;
+
+        const values = [podcastId, userId];
+
+        let result = await dbPoolInstance.query(sqlQuery, values);
+
+
+        if (result.rows.length > 0) {
+            //meaning that it exists in favorites
+            //create a 2nd sql query to delete
+            const sqlQuery2 = `DELETE FROM favorites WHERE podcast_id=$1 AND user_id=$2 RETURNING *`;
+
+            let result = await dbPoolInstance.query(sqlQuery2, values);
+
+            console.log("deleted from faves!");
+
+            return true;
+
+        } else  {
+
+            const sqlQuery2 = `INSERT INTO favorites (podcast_id, user_id) VALUES ($1, $2) RETURNING *`;
+
+            let result = dbPoolInstance.query(sqlQuery2, values);
+
+            console.log("added to faves!");
+
+            return true;
+        }
     }
 
   return {

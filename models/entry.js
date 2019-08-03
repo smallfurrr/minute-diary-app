@@ -75,8 +75,9 @@ module.exports = function(dbPoolInstance) {
         return result.rows;
     }
 
-    let checkFaves = function(podcastId) {
+    let checkFaves = function(podcastId, userId) {
         console.log(podcastId);
+        console.log(userId);
     }
 
   return {

@@ -56,7 +56,11 @@ module.exports = function(db) {
 
     let toggleFavesHandler = async function (request, response) {
         try {
-            let result = db.entry.checkFaves(request.body.podcastId);
+            let userId = request.cookies['id'];
+
+            let podcastId = request.body.podcastId;
+
+            let result = db.entry.checkFaves(podcastId, userId);
         } catch (error) {
             console.log('toggle faves controller' + error);
         }

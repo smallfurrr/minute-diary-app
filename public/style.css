@@ -379,6 +379,11 @@ div#logged-wrapper {
 }
 
 /* MOOD REPORT PAGE */
+
+canvas{
+	display: inline-block;
+}
+
 #report-wrapper h1 {
 		text-align: center;
 }
@@ -399,5 +404,17 @@ div#logged-wrapper {
 }
 
 #mood-container {
-	width: 100%;
+	/*width: 50%;*/
+	display: inline-block;
+}
+
+#podcast-container {
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#podcast-container p {
+	font-family: 'Hero', sans serif;
+	font-size: 15px;
 }

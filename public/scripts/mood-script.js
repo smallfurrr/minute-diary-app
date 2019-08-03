@@ -30,7 +30,9 @@ let myChart = new Chart(chart, {
         }]
     },
     options: {
+        responsive: true,
         cutoutPercentage: 65,
+        aspectRatio: 1
     }
 });
 

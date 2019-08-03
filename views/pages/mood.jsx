@@ -11,6 +11,7 @@ class Mood extends React.Component {
                 reasonCountArray: this.props.reasonCountArray,
                 reasonNameArray: this.props.reasonNameArray,
                 topReason: this.props.topReason,
+                customMessage: this.props.customMessage
         };
 
         let stringData = JSON.stringify(moodData);
@@ -22,14 +23,18 @@ class Mood extends React.Component {
 
                 <div id="mood-container">
                     <h2>Your Primary Mood is: <span>{moodData.topMood}</span></h2>
-                    <canvas id="moodChart" height="80"></canvas>
+                    <canvas id="moodChart" width="500%" height="500%"></canvas>
                 </div>
 
-                <div id="mood-container">
+                <div id="reason-container">
                     <h2>The Primary Reason is: <span>{moodData.topReason}</span></h2>
                     <canvas id="reasonChart" height="80"></canvas>
                 </div>
-            </div>
+
+                <div id="podcast-container">
+                <p>{moodData.customMessage}</p>
+                </div>
+            </div>{/*closing report-wrapper*/}
             <script src="scripts/mood-script.js"></script>
             <script dangerouslySetInnerHTML={ {__html: `var stringData = ${stringData};`}}/>
             </LayoutScroll>

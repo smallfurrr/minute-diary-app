@@ -42,17 +42,6 @@ module.exports = function(dbPoolInstance) {
         return result.rows;
     }
 
-    let getTopMood = async function(moods) {
-
-        const sqlQuery = `SELECT mood FROM moods WHERE id=$1`;
-
-        const values = [moods[0].mood_id];
-
-        let result = await dbPoolInstance.query(sqlQuery, values);
-
-        return result.rows;
-    }
-
     let orderReasons = async function(cookies, moodId) {
 
        const sqlQuery = `SELECT COUNT(*),x.mood_id,x.reason_id,x.reason FROM (SELECT entries.mood_id, entries.reason_id, reasons.reason, entries.user_id FROM entries INNER JOIN reasons ON (reasons.id = entries.reason_id) WHERE user_id=$1 AND mood_id=$2) AS x GROUP BY x.mood_id,x.reason_id,x.reason`;
@@ -66,11 +55,21 @@ module.exports = function(dbPoolInstance) {
         return result.rows;
     }
 
+    let getMessage = async function(moodId) {
+        const sqlQuery = `SELECT content FROM messages WHERE mood_id=$1`;
+
+        const values = [moodId];
+
+        let result = await dbPoolInstance.query(sqlQuery, values);
+
+        return result.rows;
+    }
+
   return {
     addEntry,
     getUserEntries,
     orderMoods,
-    getTopMood,
     orderReasons,
+    getMessage
   };
 };

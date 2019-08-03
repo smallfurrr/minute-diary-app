@@ -23,29 +23,25 @@ module.exports = function(db) {
             //gah the date selection should be here but lets fuck that for now
 
             let orderOfMoods = await db.entry.orderMoods(request.cookies);
-            //returns an array of objects with the keys of count, mood_id and mood name
             let moodByCount = orderOfMoods.map(mood => mood.count);
-            //returns an descending array of integers
             let moodByName = orderOfMoods.map(mood => mood.mood);
-            //returns an descending array of moods that corresponds to moodByCount array
+
             let topMoodId = orderOfMoods[0].mood_id;
-            //DO NOT REMOVE need this to find the top reason later
-            let topMood = await db.entry.getTopMood(orderOfMoods);
-            //returns an array with ONE object with the key of mood and string value of top mood - extract string in data
+
             let orderOfReasons = await db.entry.orderReasons(request.cookies, topMoodId);
-            //returns an array of objects which are the related reasons in descending order
             let reasonByCount = orderOfReasons.map(reason => reason.count);
             let reasonByName = orderOfReasons.map(reason => reason.reason);
-            let topReason = orderOfReasons[0].reason;
+
+            let customMessage = await db.entry.getMessage(topMoodId);
 
             const moodData = {
                 moodCountArray: moodByCount,
                 moodNameArray: moodByName,
-                topMood: topMood[0].mood,
-                //port in top mood id as well for podcasts and message
+                topMood: orderOfMoods[0].mood,
                 reasonCountArray: reasonByCount,
                 reasonNameArray: reasonByName,
-                topReason: topReason,
+                topReason: orderOfReasons[0].reason,
+                customMessage: customMessage[0].content
             };
 
             response.render('pages/mood', moodData);

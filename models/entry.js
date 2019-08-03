@@ -65,11 +65,22 @@ module.exports = function(dbPoolInstance) {
         return result.rows;
     }
 
+    let getMeditations = async function(moodId) {
+        const sqlQuery = `SELECT title,link FROM tracks WHERE mood_id=$1`;
+
+        const values = [moodId];
+
+        let result = await dbPoolInstance.query(sqlQuery, values);
+
+        return result.rows;
+    }
+
   return {
     addEntry,
     getUserEntries,
     orderMoods,
     orderReasons,
-    getMessage
+    getMessage,
+    getMeditations
   };
 };

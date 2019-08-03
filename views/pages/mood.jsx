@@ -11,16 +11,30 @@ class Mood extends React.Component {
                 reasonCountArray: this.props.reasonCountArray,
                 reasonNameArray: this.props.reasonNameArray,
                 topReason: this.props.topReason,
-                customMessage: this.props.customMessage
+                customMessage: this.props.customMessage,
+                customMeditations: this.props.customMeditations
         };
 
         let stringData = JSON.stringify(moodData);
 
+        const meditationCards = this.props.customMeditations.map(meditation =>{
+
+        return (
+                <div className="meditation-card">
+                        <h2>{meditation.title}</h2>
+                        <audio controls>
+                            <source src={meditation.link} type="audio/mpeg"/>
+                            Your browser does not support the audio tag.
+                        </audio>
+                </div>
+        )
+    });
+
         return (
             <LayoutScroll>
-
+            <br/>
             <div className="report-header">
-                <h1>Mood Report</h1>
+                <h1>Your Mood Report</h1>
             </div>
 
             <div id="report-wrapper">
@@ -37,7 +51,8 @@ class Mood extends React.Component {
                 </div>{/*closing report-wrapper*/}
 
                 <div id="podcast-container">
-                <p>{moodData.customMessage}</p>
+                    <p>{moodData.customMessage}</p>
+                    {meditationCards}
                 </div>
             <script src="scripts/mood-script.js"></script>
             <script dangerouslySetInnerHTML={ {__html: `var stringData = ${stringData};`}}/>

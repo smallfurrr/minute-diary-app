@@ -33,6 +33,8 @@ module.exports = function(db) {
             let reasonByName = orderOfReasons.map(reason => reason.reason);
 
             let customMessage = await db.entry.getMessage(topMoodId);
+            let customMeditations = await db.entry.getMeditations(topMoodId)
+            //should be an array of objects with each object being a meditation with title and link
 
             const moodData = {
                 moodCountArray: moodByCount,
@@ -41,7 +43,8 @@ module.exports = function(db) {
                 reasonCountArray: reasonByCount,
                 reasonNameArray: reasonByName,
                 topReason: orderOfReasons[0].reason,
-                customMessage: customMessage[0].content
+                customMessage: customMessage[0].content,
+                customMeditations: customMeditations
             };
 
             response.render('pages/mood', moodData);

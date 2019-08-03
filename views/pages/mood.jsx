@@ -58,7 +58,7 @@ class Mood extends React.Component {
 
                 <div id="meditation-container">
                     <div id="meditation-message">
-                        <p>{moodData.customMessage}</p>
+                        <blockquote className="shadow">{moodData.customMessage}</blockquote>
                     </div>
 
                     <div id="meditation-tracks">

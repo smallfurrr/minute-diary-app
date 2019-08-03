@@ -419,20 +419,40 @@ canvas{
 
 #meditation-container {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 #meditation-container p {
-	/*display: block;*/
 	font-family: 'Hero', sans serif;
 	font-size: 15px;
 }
 
 #meditation-message {
 	width: 40%;
-	background-color: white;
+}
+
+.meditation-card h2 {
+	font-family: 'Hero Light', sans serif;
+	font-size: 15px;
+}
+
+blockquote {
+	font-family: 'Hero', sans serif;
+	line-height: 1.5;
+  background: white;
+  padding: 20px 30px 20px 30px;
+  margin: 50px auto;
+  width: 50%;
+  max-width: 500px;
+}
+
+.shadow {
+  border: solid 2px;
+  box-shadow: 15px 15px 0 0 #F9C397;
 }
 
 #meditation-tracks {
 	width: 40%;
+	margin: 30px;
 }

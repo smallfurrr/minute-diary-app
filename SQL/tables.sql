@@ -25,8 +25,9 @@ CREATE TABLE IF NOT EXISTS entries (
 	created_at DATE DEFAULT now()
 );
 
-CREATE TABLE IF NOT EXISTS podcasts (
+CREATE TABLE IF NOT EXISTS tracks (
 	id SERIAL PRIMARY KEY,
+	title TEXT,
 	link TEXT,
 	mood_id INTEGER,
 	reason_id INTEGER

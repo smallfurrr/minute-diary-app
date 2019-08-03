@@ -42,6 +42,7 @@ module.exports = function(db) {
                 moodCountArray: moodByCount,
                 moodNameArray: moodByName,
                 topMood: topMood[0].mood,
+                //port in top mood id as well for podcasts and message
                 reasonCountArray: reasonByCount,
                 reasonNameArray: reasonByName,
                 topReason: topReason,

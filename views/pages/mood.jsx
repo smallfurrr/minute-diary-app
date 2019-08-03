@@ -26,6 +26,7 @@ class Mood extends React.Component {
                             <source src={meditation.link} type="audio/mpeg"/>
                             Your browser does not support the audio tag.
                         </audio>
+                        <input type="image" src="img/empty-heart.png" height="20px" />
                 </div>
         )
     });

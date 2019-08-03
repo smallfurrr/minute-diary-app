@@ -437,6 +437,10 @@ canvas{
 	font-size: 15px;
 }
 
+.meditation-card input[type="image"] {
+	transform: translateY(-15px) translateX(10px);
+}
+
 blockquote {
 	font-family: 'Hero', sans serif;
 	line-height: 1.5;

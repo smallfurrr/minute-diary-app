@@ -20,6 +20,10 @@ class Log extends React.Component {
 
         return (
             <LayoutScroll>
+            <div className="report-header">
+                <h1>Your Entry Log</h1>
+            </div>
+
             <div id="entry-container">
                 {entryCards}
             </div>

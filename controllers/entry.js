@@ -20,8 +20,6 @@ module.exports = function(db) {
 
     let fetchMoodReportHandler = async function(request, response) {
         try {
-            //gah the date selection should be here but lets fuck that for now
-
             let orderOfMoods = await db.entry.orderMoods(request.cookies);
             let moodByCount = orderOfMoods.map(mood => mood.count);
             let moodByName = orderOfMoods.map(mood => mood.mood);
@@ -35,8 +33,7 @@ module.exports = function(db) {
             let customMeditations = await db.entry.getMeditations(topMoodId);
 
             let userFaves = await db.entry.getUserFaves(request.cookies);
-            let faveArray = userFaves.map(fave => fave.podcast_id);
-            //results in empty array if user has no faves
+            let faveArray = userFaves.rows.map(fave => fave.podcast_id);
 
             const moodData = {
                 moodCountArray: moodByCount,
@@ -54,6 +51,17 @@ module.exports = function(db) {
             // response.send(moodData);
         } catch (error) {
             console.log('mood report controller' + error)
+        }
+    }
+
+    let viewFavesHandler = async function(request,response) {
+        try {
+            let result = await db.entry.getUserFaves(request.cookies);
+
+            // response.send(result);
+            response.render('pages/faves', result);
+        } catch (error) {
+             console.log('view faves controller' + error);
         }
     }
 
@@ -85,6 +93,7 @@ module.exports = function(db) {
     return {
         addEntryHandler,
         fetchMoodReportHandler,
+        viewFavesHandler,
         toggleFavesHandler,
         fetchAllEntriesHandler
     };

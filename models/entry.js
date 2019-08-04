@@ -20,7 +20,7 @@ module.exports = function(dbPoolInstance) {
 
     let getUserEntries = async function(cookies) {
 
-        const sqlQuery = `SELECT e.content, md.mood, r.reason, e.created_at FROM entries AS e INNER JOIN moods AS md ON e.mood_id = md.id INNER JOIN reasons AS r ON e.reason_id = r.id WHERE e.user_id=$1 ORDER BY e.created_at DESC;`;
+        const sqlQuery = `SELECT e.id, e.content, md.mood, r.reason, e.created_at FROM entries AS e INNER JOIN moods AS md ON e.mood_id = md.id INNER JOIN reasons AS r ON e.reason_id = r.id WHERE e.user_id=$1 ORDER BY e.id DESC;`;
 
         const values = [cookies['id']];
 
@@ -75,13 +75,13 @@ module.exports = function(dbPoolInstance) {
     }
 
     let getUserFaves = async function(cookies) {
-        const sqlQuery = `SELECT podcast_id FROM favorites WHERE user_id=$1`;
+        const sqlQuery = `SELECT x.podcast_id, y.title, y.link FROM favorites AS x INNER JOIN tracks AS y ON x.podcast_id = y.id WHERE x.user_id = $1`;
 
         const values = [cookies['id']];
 
         let result = await dbPoolInstance.query(sqlQuery, values);
 
-        return result.rows;
+        return result;
     }
 
     let toggleFaves = async function(podcastId, userId) {

@@ -15,6 +15,7 @@ module.exports = function (app, allModels) {
 
     app.get('/mood', entryController.fetchMoodReportHandler);
 
+    app.get('/faves', entryController.viewFavesHandler);
     app.post('/faves', entryController.toggleFavesHandler);
 
     app.get('/log', entryController.fetchAllEntriesHandler);

@@ -14,7 +14,7 @@
 	src: url('fonts/Hero-Light.woff');
 }
 
-html{
+html {
 	height: 100%;
 }
 
@@ -32,10 +32,10 @@ body#nav-bodeh {
 
 body#scroll-bodeh {
 	margin: 0;
-	background: linear-gradient(90deg, rgba(251,122,207,1) 0%, rgba(247,152,172,1) 45%, rgba(250,209,143,1) 100%);
+	background: linear-gradient(90deg, rgba(251, 122, 207, 1) 0%, rgba(247, 152, 172, 1) 45%, rgba(250, 209, 143, 1) 100%);
 	height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 /* HOME PAGE CSS */
@@ -379,8 +379,7 @@ div#logged-wrapper {
 }
 
 /* MOOD REPORT PAGE */
-
-canvas{
+canvas {
 	display: inline-block;
 }
 
@@ -391,10 +390,10 @@ canvas{
 }
 
 #report-wrapper h1, .report-header h1 {
-		text-align: center;
+	text-align: center;
 }
 
-#report-wrapper h2, .report-header h2{
+#report-wrapper h2, .report-header h2 {
 	font-family: 'Hero Light', sans serif;
 	font-size: 20px;
 	color: white;
@@ -444,16 +443,16 @@ canvas{
 blockquote {
 	font-family: 'Hero', sans serif;
 	line-height: 1.5;
-  background: white;
-  padding: 20px 30px 20px 30px;
-  margin: 50px auto;
-  width: 50%;
-  max-width: 500px;
+	background: white;
+	padding: 20px 30px 20px 30px;
+	margin: 50px auto;
+	width: 50%;
+	max-width: 500px;
 }
 
 .shadow {
-  border: solid 2px;
-  box-shadow: 15px 15px 0 0 #F9C397;
+	border: solid 2px;
+	box-shadow: 15px 15px 0 0 #F9C397;
 }
 
 #meditation-tracks {
@@ -467,6 +466,7 @@ input[type="image"]:focus {
 
 /* PAST ENTRIES PAGE */
 #entry-container {
+
 	/*margin: 0 auto;*/
 }
 
@@ -479,12 +479,17 @@ input[type="image"]:focus {
 
 .entry-card h3 {
 	font-family: 'Hero', sans serif;
-	padding-bottom: 2px;
-	border-bottom: 1.5px solid #FB7ACF;
+	letter-spacing: 2px;
+	padding: 5px;
+	background-color: #FB7ACF;
+	color: white;
+	display: inline-block;
+	margin: 10px 0;
 }
 
 .entry-card p {
 	font-family: 'Hero', sans serif;
+	font-size: 17px;
 }
 
 .entry-card h4 {

@@ -56,10 +56,18 @@ module.exports = function(db) {
 
     let viewFavesHandler = async function(request,response) {
         try {
-            let result = await db.entry.getUserFaves(request.cookies);
+            // let result = await db.entry.getUserFaves(request.cookies);
 
+            let userFaves = await db.entry.getUserFaves(request.cookies);
+
+            let faveArray = userFaves.rows.map(fave => fave.podcast_id);
+
+            const faveData = {
+                userFaves: userFaves,
+                faveArray: faveArray
+            }
             // response.send(result);
-            response.render('pages/faves', result);
+            response.render('pages/faves', faveData);
         } catch (error) {
              console.log('view faves controller' + error);
         }

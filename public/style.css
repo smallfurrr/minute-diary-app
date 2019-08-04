@@ -465,11 +465,6 @@ input[type="image"]:focus {
 }
 
 /* PAST ENTRIES PAGE */
-#entry-container {
-
-	/*margin: 0 auto;*/
-}
-
 .entry-card {
 	background-color: white;
 	width: 40%;
@@ -496,4 +491,17 @@ input[type="image"]:focus {
 	font-family: 'Hero Light', sans serif;
 	display: inline-block;
 	margin: 5px;
+}
+
+/* FAVES PAGE */
+div#fave-container {
+    text-align: center;
+}
+
+.podcast-card {
+    margin: 80px 0;
+}
+
+.podcast-card input[type="image"] {
+	transform: translateY(-15px) translateX(10px);
 }

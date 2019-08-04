@@ -17,8 +17,7 @@ module.exports = function (app, allModels) {
 
     app.post('/faves', entryController.toggleFavesHandler);
 
-    //change the entry controller to something else obvs
-    app.get('/log', entryController.fetchMoodReportHandler);
+    app.get('/log', entryController.fetchAllEntriesHandler);
 
     app.get('/logout', userController.logoutRequestHandler);
 };

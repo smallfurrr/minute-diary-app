@@ -25,7 +25,6 @@ module.exports = function(db) {
             let orderOfMoods = await db.entry.orderMoods(request.cookies);
             let moodByCount = orderOfMoods.map(mood => mood.count);
             let moodByName = orderOfMoods.map(mood => mood.mood);
-
             let topMoodId = orderOfMoods[0].mood_id;
 
             let orderOfReasons = await db.entry.orderReasons(request.cookies, topMoodId);
@@ -37,7 +36,6 @@ module.exports = function(db) {
 
             let userFaves = await db.entry.getUserFaves(request.cookies);
             let faveArray = userFaves.map(fave => fave.podcast_id);
-            console.log(faveArray);
             //results in empty array if user has no faves
 
             const moodData = {
@@ -59,24 +57,34 @@ module.exports = function(db) {
         }
     }
 
-    let toggleFavesHandler = async function (request, response) {
+    let toggleFavesHandler = async function(request, response) {
         try {
             let userId = request.cookies['id'];
 
             let podcastId = request.body.podcastId;
 
             let result = await db.entry.toggleFaves(podcastId, userId);
-            //should return true
-
 
         } catch (error) {
             console.log('toggle faves controller' + error);
         }
     }
 
+    let fetchAllEntriesHandler = async function(request, response) {
+        try {
+
+            let result = await db.entry.getUserEntries(request.cookies);
+
+            response.send(result);
+        } catch (error) {
+            console.log('fetch entries controller' + error);
+        }
+    }
+
     return {
         addEntryHandler,
         fetchMoodReportHandler,
-        toggleFavesHandler
+        toggleFavesHandler,
+        fetchAllEntriesHandler
     };
 }

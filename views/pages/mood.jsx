@@ -12,21 +12,27 @@ class Mood extends React.Component {
                 reasonNameArray: this.props.reasonNameArray,
                 topReason: this.props.topReason,
                 customMessage: this.props.customMessage,
-                customMeditations: this.props.customMeditations
+                customMeditations: this.props.customMeditation,
+                faveArray: this.props.faveArray
         };
 
         let stringData = JSON.stringify(moodData);
 
         const meditationCards = this.props.customMeditations.map(meditation =>{
 
-        return (
+            let emptyUrl = "img/empty-heart.png";
+            let filledUrl = "img/filled-heart.png";
+
+            let imgUrl = moodData.faveArray.includes(meditation.id) ? filledUrl : emptyUrl;
+
+                return (
                 <div className="meditation-card">
                         <h2>{meditation.title}</h2>
                         <audio controls>
                             <source src={meditation.link} type="audio/mpeg"/>
                             Your browser does not support the audio tag.
                         </audio>
-                        <input type="image" src="img/empty-heart.png" value={meditation.id} className="heart-button" height="20px" />
+                        <input type="image" src={imgUrl} value={meditation.id} className="heart-button" height="20px" />
                 </div>
         )
     });

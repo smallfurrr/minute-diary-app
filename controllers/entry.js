@@ -33,8 +33,12 @@ module.exports = function(db) {
             let reasonByName = orderOfReasons.map(reason => reason.reason);
 
             let customMessage = await db.entry.getMessage(topMoodId);
-            let customMeditations = await db.entry.getMeditations(topMoodId)
-            //should be an array of objects with each object being a meditation with id, title and link
+            let customMeditations = await db.entry.getMeditations(topMoodId);
+
+            let userFaves = await db.entry.getUserFaves(request.cookies);
+            let faveArray = userFaves.map(fave => fave.podcast_id);
+            console.log(faveArray);
+            //results in empty array if user has no faves
 
             const moodData = {
                 moodCountArray: moodByCount,
@@ -44,7 +48,8 @@ module.exports = function(db) {
                 reasonNameArray: reasonByName,
                 topReason: orderOfReasons[0].reason,
                 customMessage: customMessage[0].content,
-                customMeditations: customMeditations
+                customMeditations: customMeditations,
+                faveArray: faveArray
             };
 
             response.render('pages/mood', moodData);
@@ -60,14 +65,10 @@ module.exports = function(db) {
 
             let podcastId = request.body.podcastId;
 
-            let result = await db.entry.checkFaves(podcastId, userId);
+            let result = await db.entry.toggleFaves(podcastId, userId);
+            //should return true
 
-            if (result === true) {
-                console.log("elise is the smartest");
-            } else {
-                console.log("elise is a dumb bitch");
-            }
-            //actually nothing to do with this result right hahahah
+
         } catch (error) {
             console.log('toggle faves controller' + error);
         }

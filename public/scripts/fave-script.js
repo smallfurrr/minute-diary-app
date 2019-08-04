@@ -4,7 +4,7 @@ const url2 = "img/filled-heart.png";
 let hearts = document.querySelectorAll(".heart-button");
 //returns an array
 
-let smashThatMfLikeButton = (podcastId) => {
+let pressHeart = (podcastId) => {
 
     let request = new XMLHttpRequest();
     let url = "/faves";
@@ -36,10 +36,10 @@ hearts.forEach((heart) => {
 
          if (imgSource === url) {
             heart.setAttribute('src', url2);
-            smashThatMfLikeButton(podcastId);
+            pressHeart(podcastId);
          } else if (imgSource === url2) {
             heart.setAttribute('src', url);
-            smashThatMfLikeButton(podcastId);
+            pressHeart(podcastId);
          }
     });
 });

@@ -75,7 +75,17 @@ module.exports = function(dbPoolInstance) {
         return result.rows;
     }
 
-    let checkFaves = async function(podcastId, userId) {
+    let getUserFaves = async function(cookies) {
+        const sqlQuery = `SELECT podcast_id FROM favorites WHERE user_id=$1`;
+
+        const values = [cookies['id']];
+
+        let result = await dbPoolInstance.query(sqlQuery, values);
+
+        return result.rows;
+    }
+
+    let toggleFaves = async function(podcastId, userId) {
 
         const sqlQuery = `SELECT id FROM favorites WHERE podcast_id=$1 AND user_id=$2`;
 
@@ -83,10 +93,8 @@ module.exports = function(dbPoolInstance) {
 
         let result = await dbPoolInstance.query(sqlQuery, values);
 
-
         if (result.rows.length > 0) {
-            //meaning that it exists in favorites
-            //create a 2nd sql query to delete
+
             const sqlQuery2 = `DELETE FROM favorites WHERE podcast_id=$1 AND user_id=$2 RETURNING *`;
 
             let result = await dbPoolInstance.query(sqlQuery2, values);
@@ -95,7 +103,7 @@ module.exports = function(dbPoolInstance) {
 
             return true;
 
-        } else  {
+        } else {
 
             const sqlQuery2 = `INSERT INTO favorites (podcast_id, user_id) VALUES ($1, $2) RETURNING *`;
 
@@ -114,6 +122,7 @@ module.exports = function(dbPoolInstance) {
     orderReasons,
     getMessage,
     getMeditations,
-    checkFaves
+    getUserFaves,
+    toggleFaves
   };
 };

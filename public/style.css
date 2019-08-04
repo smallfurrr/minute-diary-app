@@ -1,4 +1,5 @@
 /* OVERALL CSS */
+
 @font-face {
 	font-family: 'Iris';
 	src: url('fonts/iris-font-regular.woff');
@@ -38,14 +39,16 @@ body#scroll-bodeh {
 	background-attachment: fixed;
 }
 
-/* HOME PAGE CSS */
+/* HOME PAGE */
+
 #home-wrapper {
 	height: 90vh;
 	display: flex;
 	align-items: center;
 }
 
-/* home page css - LEFT */
+/* HOME PAGE - LEFT */
+
 .home-left {
 	width: 66%;
 	position: relative;
@@ -82,7 +85,8 @@ body#scroll-bodeh {
 	margin-top: 30px;
 }
 
-/* home page css - RIGHT */
+/* HOME PAGE - RIGHT */
+
 .home-right {
 	width: 33%;
 	display: inline-block;
@@ -100,6 +104,7 @@ body#scroll-bodeh {
 }
 
 /* NAV BAR */
+
 .nav-header {
 	font-family: 'Hero', sans serif;
 	font-size: 15px;
@@ -134,6 +139,7 @@ li a:hover {
 }
 
 /* LOGIN FORM */
+
 #login-form {
 	text-align: center;
 	margin: 0 auto;
@@ -200,6 +206,7 @@ button[type=submit]:hover, button[type=submit]:focus, button[type=submit]:active
 }
 
 /* REGISTRATION PAGE */
+
 .reg-header {
 	text-align: center;
 	margin-bottom: 50px;
@@ -254,6 +261,7 @@ form#register-form {
 }
 
 /* LOGIN PAGE */
+
 #login-wrapper, #logged-wrapper {
 	text-align: center;
 }
@@ -277,9 +285,7 @@ form#register-form {
 	font-size: 18px;
 	color: white;
 	letter-spacing: 1px;
-	margin-bottom: 40px;    /* border-bottom: 1px dashed white; */
-
-	/* padding-bottom: 5px; */
+	margin-bottom: 40px;
 	display: inline-block;
 }
 
@@ -358,6 +364,7 @@ form#register-form {
 }
 
 /* POST ENTRY PAGE */
+
 #logged-wrapper button {
 	display: inline-block;
 	margin: 15px;
@@ -379,6 +386,7 @@ div#logged-wrapper {
 }
 
 /* MOOD REPORT PAGE */
+
 canvas {
 	display: inline-block;
 }
@@ -390,6 +398,7 @@ canvas {
 }
 
 #report-wrapper h1, .report-header h1 {
+	font-family: 'Hero', sans serif;
 	text-align: center;
 }
 
@@ -465,6 +474,7 @@ input[type="image"]:focus {
 }
 
 /* PAST ENTRIES PAGE */
+
 .entry-card {
 	background-color: white;
 	width: 40%;
@@ -509,7 +519,13 @@ div#fave-container {
 }
 
 .podcast-card {
-    margin: 80px 0;
+  margin: 80px 0;
+}
+
+.podcast-card h2 {
+  font-family: 'Hero Light', sans serif;
+  font-size: 20px;
+  display: inline-block;
 }
 
 .podcast-card input[type="image"] {

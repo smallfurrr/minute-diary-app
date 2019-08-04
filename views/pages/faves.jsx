@@ -14,6 +14,7 @@ class Faves extends React.Component {
             return (
             <div className="podcast-card">
                     <h2>{podcast.title}</h2>
+                    <br/>
                     <audio controls>
                             <source src={podcast.link} type="audio/mpeg"/>
                             Your browser does not support the audio tag.
@@ -25,7 +26,8 @@ class Faves extends React.Component {
 
         return (
             <LayoutScroll>
-                 <div className="report-header">
+                <br/>
+                <div className="report-header">
                     <h1>Your Favorite Tracks</h1>
                 </div>
 

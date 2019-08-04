@@ -464,3 +464,31 @@ blockquote {
 input[type="image"]:focus {
 	outline: 0;
 }
+
+/* PAST ENTRIES PAGE */
+#entry-container {
+	/*margin: 0 auto;*/
+}
+
+.entry-card {
+	background-color: white;
+	width: 40%;
+	padding: 10px;
+	margin: 30px auto;
+}
+
+.entry-card h3 {
+	font-family: 'Hero', sans serif;
+	padding-bottom: 2px;
+	border-bottom: 1.5px solid #FB7ACF;
+}
+
+.entry-card p {
+	font-family: 'Hero', sans serif;
+}
+
+.entry-card h4 {
+	font-family: 'Hero Light', sans serif;
+	display: inline-block;
+	margin: 5px;
+}

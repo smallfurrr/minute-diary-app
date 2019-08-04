@@ -20,7 +20,9 @@ class Log extends React.Component {
 
         return (
             <LayoutScroll>
+            <div id="entry-container">
                 {entryCards}
+            </div>
             </LayoutScroll>
         )
     }

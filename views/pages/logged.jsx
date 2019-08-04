@@ -4,12 +4,15 @@ class Logged extends React.Component {
     render() {
         return (
             <LayoutNav>
-            <div id="logged-wrapper">
-                <h1>Entry Logged Successfully!</h1>
-                <h2>What would you like to do now?</h2>
+            <div id="logged-container">
+                <div id="logged-wrapper">
+                    <h1>Entry Logged Successfully!</h1>
+                    <h2>What would you like to do now?</h2>
 
-                <button type="button" id="report-btn">View Mood Report</button>
-                <button type="button" id="addentry-btn">Add Another Entry</button>
+                    <button type="button" id="report-btn">View Mood Report</button>
+                    <button type="button" id="view-btn">View All Entries</button>
+                    <button type="button" id="addentry-btn">Add Another Entry</button>
+                </div>
             </div>
             <script src="scripts/entry-script.js"></script>
             </LayoutNav>

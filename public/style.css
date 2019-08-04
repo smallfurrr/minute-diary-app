@@ -140,7 +140,7 @@ li a:hover {
 
 /* LOGIN FORM */
 
-#login-form {
+#login-form, #login-form-2 {
 	text-align: center;
 	margin: 0 auto;
 }
@@ -156,8 +156,22 @@ li a:hover {
 	transition: ease-in-out, width .35s ease-in-out;
 }
 
+#login-form-2 input[type="text"] {
+	font-family: 'Hero Light', sans serif;
+	font-size: 13px;
+	display: block;
+	padding: 10px;
+	border: none;
+	margin: 10px auto;
+	width: 40%;
+}
+
 #login-form input[type=text]:focus {
 	width: 60%;
+	outline: 0;
+}
+
+#login-form-2 input[type=text]:focus {
 	outline: 0;
 }
 
@@ -172,8 +186,22 @@ li a:hover {
 	transition: ease-in-out, width .35s ease-in-out;
 }
 
+#login-form-2 input[type="password"] {
+	font-family: 'Hero Light', sans serif;
+	font-size: 13px;
+	display: block;
+	padding: 10px;
+	border: none;
+	margin: 10px auto;
+	width: 40%;
+}
+
 #login-form input[type="password"]:focus {
 	width: 60%;
+	outline: 0;
+}
+
+#login-form-2 input[type="password"]:focus {
 	outline: 0;
 }
 
@@ -239,14 +267,14 @@ form#register-form {
 }
 
 .reg-form input[type="text"] {
-	width: 65%;
+	width: 64%;
 	margin: 30px auto;
 	border: none;
 	padding: 10px;
 }
 
 .reg-form input[type="password"] {
-	width: 65%;
+	width: 64%;
 	margin: 10px auto 20px auto;
 	border: none;
 	padding: 10px;
@@ -254,10 +282,17 @@ form#register-form {
 
 .reg-form input[type="text"].reg-name {
 	display: inline-block;
-	margin: 30px 10px 10px 10px;
 	width: 30%;
 	border: none;
 	padding: 10px;
+}
+
+input#first-name {
+	margin: 30px 10px 10px 0;
+}
+
+input#last-name {
+	margin: 30px 0 10px 10px;
 }
 
 /* LOGIN PAGE */
@@ -266,7 +301,29 @@ form#register-form {
 	text-align: center;
 }
 
+div#login-container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-wrapper h1 {
+	font-family: 'Hero', sans serif;
+  font-size: 45px;
+  letter-spacing: 2.5px;
+	color: white;
+	text-transform: uppercase;
+	margin:0;
+}
+
+#login-wrapper h2 {
+	font-family: 'Hero Light', sans serif;
+	margin-bottom: 50px;
+}
+
 /* USER PAGE */
+
 .user-wrapper {
 	text-align: center;
 }
@@ -365,24 +422,31 @@ form#register-form {
 
 /* POST ENTRY PAGE */
 
+div#logged-container {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #logged-wrapper button {
 	display: inline-block;
-	margin: 15px;
+	margin: 0 15px;
 	padding: 10px 30px;
 }
 
 #logged-wrapper h1 {
 	font-family: 'Hero', sans serif;
+  font-size: 45px;
+  letter-spacing: 2.5px;
 	color: white;
 	text-transform: uppercase;
+	margin:0;
 }
 
 #logged-wrapper h2 {
 	font-family: 'Hero Light', sans serif;
-}
-
-div#logged-wrapper {
-	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 /* MOOD REPORT PAGE */
@@ -514,7 +578,6 @@ div#fave-container {
   font-size: 50px;
   margin: 300px 0;
   display: inline-block;
-  width: 62%;
 	background: linear-gradient(90deg, rgba(251, 122, 207, 1) 0%, rgba(247, 152, 172, 1) 45%, rgba(250, 209, 143, 1) 100%);
 }
 

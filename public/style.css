@@ -498,6 +498,16 @@ div#fave-container {
     text-align: center;
 }
 
+#fave-container h1 {
+	font-family: 'Hero', sans serif;
+  color: white;
+  font-size: 50px;
+  margin: 300px 0;
+  display: inline-block;
+  width: 62%;
+	background: linear-gradient(90deg, rgba(251, 122, 207, 1) 0%, rgba(247, 152, 172, 1) 45%, rgba(250, 209, 143, 1) 100%);
+}
+
 .podcast-card {
     margin: 80px 0;
 }

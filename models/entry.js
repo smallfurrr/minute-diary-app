@@ -18,7 +18,6 @@ module.exports = function(dbPoolInstance) {
         }
     };
 
-    //use this to get entries for the log page laterrrr
     let getUserEntries = async function(cookies) {
 
         const sqlQuery = `SELECT e.content, md.mood, r.reason, e.created_at FROM entries AS e INNER JOIN moods AS md ON e.mood_id = md.id INNER JOIN reasons AS r ON e.reason_id = r.id WHERE e.user_id=$1 ORDER BY e.created_at DESC;`;
@@ -27,8 +26,7 @@ module.exports = function(dbPoolInstance) {
 
         let result = await dbPoolInstance.query(sqlQuery, values);
 
-        //do a second inner join now to get mood_id and reason_id
-        return result.rows;
+        return result;
     }
 
     let orderMoods = async function(cookies) {

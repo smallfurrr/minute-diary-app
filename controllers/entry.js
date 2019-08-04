@@ -75,7 +75,8 @@ module.exports = function(db) {
 
             let result = await db.entry.getUserEntries(request.cookies);
 
-            response.send(result);
+            // response.send(result.rows);
+            response.render('pages/log', result);
         } catch (error) {
             console.log('fetch entries controller' + error);
         }

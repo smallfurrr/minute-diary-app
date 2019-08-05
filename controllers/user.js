@@ -27,7 +27,7 @@ module.exports = function(db) {
             if (successfulRegistration === true) {
                 response.render('pages/login')
             } else {
-                response.send('Registration not successful');
+                response.render('pages/error');
             }
         } catch (error) {
             console.log('user controller ' + error);
@@ -52,7 +52,7 @@ module.exports = function(db) {
 
                 response.render('pages/user', cookieData);
             } else {
-                response.send('Login was not successful.');
+                response.render('pages/error');
             }
         } catch (error) {
             console.log('authenticate login controller' + error);
@@ -73,7 +73,7 @@ module.exports = function(db) {
 
                 response.render('pages/user', data);
             } else {
-                response.send('Unable to render user page. Are you logged in?');
+                response.render('pages/error');
             }
         } catch (error) {
             console.log('authenticate user controller' + error);

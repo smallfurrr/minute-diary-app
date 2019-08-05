@@ -599,7 +599,7 @@ input[type="image"]:focus {
 	font-family: 'Hero', sans serif;
 	letter-spacing: 2px;
 	padding: 5px;
-	background-color: #FB7ACF;
+	background-color: black;
 	color: white;
 	display: inline-block;
 	margin: 10px 0;
@@ -639,9 +639,36 @@ div#fave-container {
   font-family: 'Hero Light', sans serif;
   font-size: 18px;
   display: inline-block;
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .podcast-card input[type="image"] {
 	transform: translateY(-15px) translateX(10px);
+}
+
+/* ERROR PAGE */
+
+#error-wrapper {
+	text-align: center;
+}
+
+div#error-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#error-wrapper h1 {
+	font-family: 'Hero', sans serif;
+  font-size: 45px;
+  letter-spacing: 2.5px;
+	color: white;
+	text-transform: uppercase;
+	margin:0;
+}
+
+#error-wrapper h2 {
+	font-family: 'Hero Light', sans serif;
+	margin-bottom: 50px;
 }

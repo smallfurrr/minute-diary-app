@@ -13,7 +13,7 @@ module.exports = function(db) {
                 response.render('pages/logged')
                 // response.send('Entry logged successfully!')
             } else {
-               response.send('Unable to log entry.');
+               response.render('pages/error');
             }
         } catch(error) {
             console.log('add entry controller' + error);
@@ -58,8 +58,6 @@ module.exports = function(db) {
 
     let viewFavesHandler = async function(request,response) {
         try {
-            // let result = await db.entry.getUserFaves(request.cookies);
-
             let userFaves = await db.entry.getUserFaves(request.cookies);
 
             let faveArray = userFaves.rows.map(fave => fave.podcast_id);
@@ -93,7 +91,6 @@ module.exports = function(db) {
 
             let result = await db.entry.getUserEntries(request.cookies);
 
-            // response.send(result.rows);
             response.render('pages/log', result);
         } catch (error) {
             console.log('fetch entries controller' + error);

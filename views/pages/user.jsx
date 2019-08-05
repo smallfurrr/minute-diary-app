@@ -15,6 +15,7 @@ class User extends React.Component {
                 <button type="submit" id="get-modal-btn">Submit</button>
 
             <div id="overlay">
+                <div id="overlay-button"></div>
                 <form method="POST" action="/entries" id="entry-form">
                     <input type="hidden" name="user_id" value={this.props.id}/>
 

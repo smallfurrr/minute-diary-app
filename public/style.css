@@ -349,6 +349,16 @@ div#login-container {
   cursor: pointer;
 }
 
+div#overlay-button {
+	height: 40px;
+	width: 40px;
+	background-image: url("img/cancel.png");
+	background-size: cover;
+	position: absolute;
+  top: 40px;
+  right: 80px
+}
+
 .user-wrapper {
 	text-align: center;
 }
@@ -456,7 +466,7 @@ div#reason-selection {
 /* POST ENTRY PAGE */
 
 div#logged-container {
-    height: 90vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -11,6 +11,7 @@ class LayoutScroll extends React.Component {
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
             </head>
             <header className="nav-header">
+            <div id="logo"><a href="/user"><img src="img/logo.png"/></a></div>
             <ul>
                 <li><a href="/user">Add Entry</a></li>
                 <li><a href="/log">View Past Entries</a></li>

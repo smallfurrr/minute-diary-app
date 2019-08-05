@@ -1,5 +1,5 @@
 var React = require("react");
-var LayoutScroll = require('../layouts/layout-scroll.jsx');
+var LayoutNav = require('../layouts/layout-nav.jsx');
 
 class Faves extends React.Component {
     render() {
@@ -25,7 +25,7 @@ class Faves extends React.Component {
     });
 
         return (
-            <LayoutScroll>
+            <LayoutNav>
                 <div className="report-header">
                     <h1>Your Favorite Tracks</h1>
                 </div>
@@ -34,7 +34,7 @@ class Faves extends React.Component {
                     {podcastCards}
                 </div>
             <script src="scripts/fave-script-remove.js"></script>
-            </LayoutScroll>
+            </LayoutNav>
         )
     }
 }

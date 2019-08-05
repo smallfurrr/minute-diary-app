@@ -10,10 +10,15 @@ class User extends React.Component {
                 <h1>Hello {this.props.name}</h1>
                 <h2>How are you feeling today?</h2>
 
+                <textarea name="content" rows="5" cols="30" id="entry-content"maxLength="500" placeholder="Let it out.. Click here and start typing!"></textarea>
+
+                <button type="submit" id="get-modal-btn">Submit</button>
+
+            <div id="overlay">
                 <form method="POST" action="/entries" id="entry-form">
                     <input type="hidden" name="user_id" value={this.props.id}/>
-                    <textarea name="content" rows="5" cols="30" maxLength="500" placeholder="Let it out.. Click here and start typing!"></textarea>
 
+                    <h1>One More Thing!</h1>
                     <div id="mood-selection">
                     <h3>Tag Your Mood</h3>
                         <div className="radio-wrapper">
@@ -60,7 +65,7 @@ class User extends React.Component {
                     <br/><br/>
 
                     <div id="reason-selection">
-                    <h3>Tag Your Reason</h3>
+                    <h3>Tag the Main Reason for this Mood</h3>
                         <div className="radio-wrapper">
                             <label>
                                 <p>Work</p>
@@ -115,13 +120,15 @@ class User extends React.Component {
                                 <input type="radio" name="reason_id" value="7"/>
                                 <img src="img/money.png"/>
                             </label>
-                        </div>
-                    </div>{/* closing reason part of form */}
-                <br/>
-                <button type="submit">Post</button>
-
+                            </div>
+                        </div>{/* closing reason part of form */}
+                    <br/>
+                    <button type="submit">Post</button>
                 </form>
+            </div>{/* closing overlay div */}
             </div> {/* closing main user wrapper */}
+
+            <script src="scripts/user-script.js"></script>
             </LayoutNav>
         )
     }

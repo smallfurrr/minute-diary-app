@@ -5,7 +5,7 @@ module.exports = function(db) {
 
     let homeRequestHandler = async function(request, response) {
         try {
-            //async part can come in later when you check if they're already logged in or not
+            //async part can come in later when you check if they're already logged in or not - if they are then bring them straight to user page instead
             response.render('pages/home');
         } catch (error) {
             console.log('user controller ' + error);
@@ -29,7 +29,7 @@ module.exports = function(db) {
             } else {
                 response.send('Registration not successful');
             }
-        } catch(error) {
+        } catch (error) {
             console.log('user controller ' + error);
         }
     };
@@ -51,11 +51,10 @@ module.exports = function(db) {
                 };
 
                 response.render('pages/user', cookieData);
-            }
-            else {
+            } else {
                 response.send('Login was not successful.');
             }
-        } catch(error) {
+        } catch (error) {
             console.log('authenticate login controller' + error);
         }
     };
@@ -76,13 +75,13 @@ module.exports = function(db) {
             } else {
                 response.send('Unable to render user page. Are you logged in?');
             }
-        } catch(error) {
+        } catch (error) {
             console.log('authenticate user controller' + error);
         }
     };
 
     let logoutRequestHandler = function(request, response) {
-    //no checking for current cookies just LOG OUTTTT for now
+        //no checking for current cookies just LOG OUTTTT for now
         response.clearCookie('name', request.cookies['name']);
         response.clearCookie('id', request.cookies['id']);
         response.clearCookie('loggedIn', request.cookies['loggedIn']);

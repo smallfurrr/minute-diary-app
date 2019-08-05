@@ -5,11 +5,13 @@ module.exports = function(db) {
 
     let addEntryHandler = async function(request, response) {
         try {
+            console.log(request.body);
+
             let result = await db.entry.addEntry(request.body);
 
             if (result === true) {
                 response.render('pages/logged')
-                response.send('Entry logged successfully!')
+                // response.send('Entry logged successfully!')
             } else {
                response.send('Unable to log entry.');
             }

@@ -2,11 +2,11 @@ var Chart = require('chart.js');
 
 module.exports = function(dbPoolInstance) {
 
-    let addEntry = async function(requestbody) {
+    let addEntry = async function(body) {
         try {
             const sqlQuery = `INSERT INTO entries (user_id, content, mood_id, reason_id) VALUES ($1, $2, $3, $4)`;
 
-            const values = [parseInt(requestbody.user_id), requestbody.content, parseInt(requestbody.mood_id), parseInt(requestbody.reason_id)];
+            const values = [parseInt(body.user_id), body.content, parseInt(body.mood_id), parseInt(body.reason_id)];
 
             let result = await dbPoolInstance.query(sqlQuery, values);
 

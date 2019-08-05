@@ -26,7 +26,6 @@ class Faves extends React.Component {
 
         return (
             <LayoutScroll>
-                <br/>
                 <div className="report-header">
                     <h1>Your Favorite Tracks</h1>
                 </div>

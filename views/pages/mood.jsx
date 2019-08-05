@@ -39,7 +39,6 @@ class Mood extends React.Component {
 
         return (
             <LayoutScroll>
-            <br/>
             <div className="report-header">
                 <h1>Your Mood Report</h1>
             </div>

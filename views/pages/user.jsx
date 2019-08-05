@@ -10,13 +10,15 @@ class User extends React.Component {
                 <h1>Hello {this.props.name}</h1>
                 <h2>How are you feeling today?</h2>
 
-                <textarea name="content" rows="5" cols="30" id="entry-content"maxLength="500" placeholder="Let it out.. Click here and start typing!"></textarea>
+                <textarea name="content" rows="5" cols="30" id="entry-content" maxLength="500" placeholder="Let it out.. Click here and start typing!"></textarea>
 
                 <button type="submit" id="get-modal-btn">Submit</button>
 
             <div id="overlay">
                 <form method="POST" action="/entries" id="entry-form">
                     <input type="hidden" name="user_id" value={this.props.id}/>
+
+                    <input type="hidden" name="content" id="content-input"/>
 
                     <h1>One More Thing!</h1>
                     <div id="mood-selection">
@@ -123,7 +125,7 @@ class User extends React.Component {
                             </div>
                         </div>{/* closing reason part of form */}
                     <br/>
-                    <button type="submit">Post</button>
+                    <button type="submit" id="submit-post-btn">Post</button>
                 </form>
             </div>{/* closing overlay div */}
             </div> {/* closing main user wrapper */}

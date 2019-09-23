@@ -106,7 +106,7 @@ module.exports = function(dbPoolInstance) {
 
             const sqlQuery2 = `INSERT INTO favorites (podcast_id, user_id) VALUES ($1, $2) RETURNING *`;
 
-            let result = dbPoolInstance.query(sqlQuery2, values);
+            let result = await dbPoolInstance.query(sqlQuery2, values);
 
             console.log("added to faves!");
 

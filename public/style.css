@@ -306,13 +306,13 @@ button[type=submit]:hover, button[type=submit]:focus, button[type=submit]:active
 }
 
 .reg-header h1 {
-	margin-top: 55px;
-	margin-bottom: 0;
-	font-size: 90px;
-	display: block;
-	color: white;
-	text-shadow: -3px 2px 2px rgba(189, 195, 199, 1);
-	letter-spacing: 10px;
+    margin-top: 55px;
+    margin-bottom: 0;
+    font-size: 3.5rem;
+    display: block;
+    color: white;
+    text-shadow: -3px 2px 2px rgba(189, 195, 199, 1);
+    letter-spacing: 10px;
 }
 
 .reg-header h2 {
@@ -326,14 +326,14 @@ button[type=submit]:hover, button[type=submit]:focus, button[type=submit]:active
 }
 
 form#register-form {
-	width: 60%;
+	width: auto;
 	margin: 0 auto;
 	text-align: center;
 }
 
 .reg-form input[type="text"] {
 	width: 64%;
-	margin: 30px auto;
+	margin: 10px auto;
 	border: none;
 	padding: 10px;
 }
@@ -347,17 +347,35 @@ form#register-form {
 
 .reg-form input[type="text"].reg-name {
 	display: inline-block;
-	width: 30%;
 	border: none;
 	padding: 10px;
 }
 
-input#first-name {
-	margin: 30px 10px 10px 0;
-}
+/* REGISTRATION PAGE - MEDIA QUERIES */
+@media (min-width:992px) {
+	.reg-header h1 {
+		font-size: 90px;
+	}
 
-input#last-name {
-	margin: 30px 0 10px 10px;
+	form#register-form {
+		width: 60%;
+	}
+	
+	.reg-form input[type="text"] {
+		margin: 30px auto;
+	}
+	
+	.reg-form input[type="text"].reg-name {
+		width: 30%;
+	}
+	
+	input#first-name {
+		margin: 30px 10px 10px 0;
+	}
+	
+	input#last-name {
+		margin: 30px 0 10px 10px;
+	}
 }
 
 /* LOGIN PAGE */

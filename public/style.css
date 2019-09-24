@@ -566,15 +566,14 @@ div#logged-container {
 }
 
 #logged-wrapper button {
-	display: inline-block;
-	margin: 0 15px;
+	display: block;
 	padding: 10px 30px;
 }
 
 #logged-wrapper h1 {
 	font-family: 'Hero', sans serif;
-  font-size: 45px;
-  letter-spacing: 2.5px;
+  	font-size: 2rem;
+  	letter-spacing: 2.5px;
 	color: white;
 	text-transform: uppercase;
 	margin:0;
@@ -583,6 +582,18 @@ div#logged-container {
 #logged-wrapper h2 {
 	font-family: 'Hero Light', sans serif;
 	margin-bottom: 50px;
+}
+
+/* POST ENTRY PAGE - MEDIA QUERIES */
+@media (min-width: 992px) {
+	#logged-wrapper h1 {
+		font-size: 45px;
+	}
+
+	#logged-wrapper button {
+		display: inline-block;
+		margin: 0 15px;
+	}
 }
 
 /* MOOD REPORT PAGE */

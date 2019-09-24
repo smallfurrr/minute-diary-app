@@ -568,7 +568,6 @@ div#logged-container {
 }
 
 /* MOOD REPORT PAGE */
-
 canvas {
 	display: inline-block;
 }
@@ -576,6 +575,7 @@ canvas {
 #report-wrapper {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 	padding: 20px;
 }
 
@@ -611,6 +611,7 @@ canvas {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
+	flex-wrap: wrap;
 }
 
 #meditation-container p {
@@ -619,7 +620,7 @@ canvas {
 }
 
 #meditation-message {
-	width: 40%;
+	width: auto;
 }
 
 .meditation-card h2 {
@@ -647,16 +648,39 @@ blockquote {
 }
 
 #meditation-tracks {
-	width: 40%;
+	width: auto;
 	margin: 30px;
+}
+
+audio {
+    width: 280px;
+    height: 54px;
 }
 
 input[type="image"]:focus {
 	outline: 0;
 }
 
-/* PAST ENTRIES PAGE */
+/* MOOD REPORT PAGE - MEDIA QUERIES */
+@media (min-width:992px) {
+	#report-wrapper {
+		flex-wrap: nowrap;
+	}
 
+	#meditation-container {
+		flex-wrap: nowrap;
+	}
+
+	#meditation-message {
+		width: 40%;
+	}
+
+	#meditation-tracks {
+		width: 40%;
+	}
+}
+
+/* PAST ENTRIES PAGE */
 .entry-card {
 	background-color: white;
 	width: 40%;

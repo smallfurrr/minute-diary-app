@@ -682,10 +682,10 @@ input[type="image"]:focus {
 
 /* PAST ENTRIES PAGE */
 .entry-card {
-	background-color: white;
-	width: 40%;
-	padding: 10px;
-	margin: 30px auto;
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    margin: 30px auto;
 }
 
 .entry-card h3 {
@@ -739,8 +739,14 @@ div#fave-container {
 	transform: translateY(-15px) translateX(10px);
 }
 
-/* ERROR PAGE */
+/* PAST ENTRIES PAGE - MEDIA QUERIES */
+@media (min-width:992px) {
+	.entry-card {
+		width: 40%;
+	}
+}
 
+/* ERROR PAGE */
 #error-wrapper {
 	text-align: center;
 }

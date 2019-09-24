@@ -44,7 +44,6 @@ body img:hover {
  }
 
 /* HOME PAGE */
-
 #home-wrapper {
 	display: flex;
 	flex-wrap: wrap;
@@ -147,7 +146,6 @@ body img:hover {
 }
 
 /* NAV BAR */
-
 .nav-header {
 	font-family: 'Hero', sans serif;
 	font-size: 15px;
@@ -164,7 +162,6 @@ ul {
 }
 
 li {
-	display: inline-block;
 	color: black;
 	margin: 0px 15px;
 }
@@ -173,7 +170,7 @@ li a {
 	display: block;
 	color: black;
 	text-align: center;
-	padding: 20px 16px;
+	padding: 12px;
 	text-decoration: none;
 }
 
@@ -183,14 +180,32 @@ li a:hover {
 }
 
 div#logo img {
-  height: 50px;
-  width: 125px;
-  position: absolute;
-  left: 10px;
-  z-index: 5;
+	display: none;
 }
-/* LOGIN FORM */
 
+/* NAV BAR - MEDIA QUERIES */
+@media (min-width:992px) {
+	li {
+		display: inline-block;
+		color: black;
+		margin: 0px 15px;
+	}
+
+	li a {
+		padding: 20px 16px;
+	}
+
+	div#logo img {
+		display: inline-block;
+		height: 50px;
+		width: 125px;
+		position: absolute;
+		left: 10px;
+		z-index: 5;
+	}
+}
+
+/* LOGIN FORM */
 #login-form, #login-form-2 {
 	text-align: center;
 	margin: 0 auto;
@@ -285,7 +300,6 @@ button[type=submit]:hover, button[type=submit]:focus, button[type=submit]:active
 }
 
 /* REGISTRATION PAGE */
-
 .reg-header {
 	text-align: center;
 	margin-bottom: 50px;
@@ -347,7 +361,6 @@ input#last-name {
 }
 
 /* LOGIN PAGE */
-
 #login-wrapper, #logged-wrapper {
 	text-align: center;
 }
@@ -374,7 +387,6 @@ div#login-container {
 }
 
 /* USER PAGE */
-
  #overlay {
   position: fixed;
   display: flex;
@@ -395,13 +407,13 @@ div#login-container {
 }
 
 div#overlay-button {
-	height: 40px;
-	width: 40px;
-	background-image: url("img/cancel.png");
-	background-size: cover;
-	position: absolute;
-  top: 40px;
-  right: 80px
+    height: 20px;
+    width: 20px;
+    background-image: url(img/cancel.png);
+    background-size: cover;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .user-wrapper {
@@ -410,7 +422,7 @@ div#overlay-button {
 
 .user-wrapper h1 {
 	color: white;
-	font-size: 80px;
+	font-size: 2.8rem;
 	margin: 10px 0 5px 0;
 	display: block;
 	text-shadow: -3px 2px 2px rgba(189, 195, 199, 1);
@@ -445,7 +457,7 @@ div#overlay-button {
 	display: block;
 	padding: 10px;
 	border: none;
-	margin: 100px auto;
+	margin: 20px auto;
 	width: 65%;
 	resize: none;
 	text-align: center;
@@ -508,8 +520,26 @@ div#reason-selection {
 	transition: background-color 0.4s linear;
 }
 
-/* POST ENTRY PAGE */
+/* USER PAGE - MEDIA QUERIES*/
+@media (min-width:992px) {
+	.user-wrapper textarea {
+		margin: 100px auto;
+	}
 
+	.user-wrapper h1 {
+		font-size: 80px;
+	}
+
+	div#overlay-button {
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		top: 40px;
+		right: 80px
+	}
+}
+
+/* POST ENTRY PAGE */
 div#logged-container {
     height: 70vh;
     display: flex;
